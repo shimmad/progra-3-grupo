@@ -1,0 +1,192 @@
+/*ESTILOS DE LA SECCION DE EVENTOS*/
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/*PALETA DE COLORES QUE UTILICE, NO ES LA PRINCIPAL (DISCUTIR LA PALETA DE COLORES EN GRUPO)*/
+:root {
+    --color-negro-op: rgba(7, 7, 7, 0.8);
+    --color-blanco: #fff;
+    --color-azul-oscuro: #092140;
+    --color-azul-marino:#0E2F59;
+    --color-azul-medio: #0E2940;
+    --color-azul-claro: #426A8C;
+    --color--azul-gris: #759CBF;
+    /*
+    --color-rojo-sangre: #5E2023;
+    --color-rojo-medio: #8C031C;
+    --color-rojo-vivo: #BF1120;
+    --color-negro: #252526;
+    */
+    
+}
+
+/*CAMBIOS GENERALES, COLOCAR Y MODIFICAR ACORDE A LO QUE SE DEFINA MAS TARDE EN EL ARCHIVO DE ESTILOS PRINCIPALES "styles.css"*/
+
+ul {
+    list-style: none;
+}
+
+/*CAJA PRINCIPAL DE LA SECCION*/
+.events {
+    width: 100%;
+    height: auto;
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(/progra-3-grupo/noctivago-tp1/img_eventos/event-bg.jpeg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 40px;
+    margin: 30px 0px 30px 0px;
+}
+
+.events > h2 {
+    display: block;
+    margin: auto;
+    color: #fff;
+    margin-bottom: 30px;
+    font-size: 50px;
+}
+
+
+/*CAJA QUE CONTIENE A TODAS LAS TARJETAS*/
+.event__cards {
+    width: 80%;
+    height: auto;
+    background-color: var(--color-negro-op);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 20px;
+}
+
+/*TARJETA*/
+.card {
+    position: relative;
+    width: 200px;
+    height: 30vh;
+    display: flex;
+    flex-direction: row;
+    border: none;
+    align-items: center;
+    justify-content: center;
+   overflow: hidden;
+   border-radius: 20px;
+   transition: border 0.1s ease;
+   margin: 20px 10px 20px 10px;
+}
+
+
+.card:hover {
+    border: 1px solid var(--color-azul-claro);
+}
+
+.card__pt1,  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit:cover;
+    filter: blur(0px);
+    transition: filter 0.3s ease;
+}
+
+.card:hover .card__pt1 img {
+    filter: blur(4px);
+
+}
+
+.card__pt2 {
+    position: absolute;/*
+    top: 0;
+    left: 0;*/
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-negro-opMid);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    border: 2px solid var(--color-azul-claro);border-radius: 20px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3 ease;
+}
+
+
+.card:hover .card__pt2 {
+    opacity: 1;
+}
+
+.card__info {
+    margin-top: 40%;
+    font-variant:normal;
+    color: var(--color-blanco);
+}
+
+.card__info ul > li {
+    margin-bottom: 5px;
+}
+
+.card__access {
+    /*
+    position: absolute;
+    top: 80%;*/
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 0px 0px 10px 10px;
+    width: 100%;
+    height: 6vh;
+    background-color: var(--color-azul-claro);
+}
+
+.card__access button {
+    width: 80px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+}
+
+.card__access button:disabled {
+    color: rgb(75, 77, 77);
+}
+
+.card__access button {
+    color: var(--color-azul-oscuro);
+}
+
+.card__access button:hover {
+    color: #fff;
+}
+
+
+
+/*
+@media (min-width:360px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    .events {
+        width: 90%;
+    }
+}
+
+@media (min-width:768px){
+
+    h1 {
+        font-size: 50px;
+    }
+
+    .events {
+        width: 60%;
+    }
+}
+*/
