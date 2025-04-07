@@ -1,11 +1,5 @@
 /*ESTILOS DE LA SECCION DE EVENTOS*/
 
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
 /*PALETA DE COLORES QUE UTILICE, NO ES LA PRINCIPAL (DISCUTIR LA PALETA DE COLORES EN GRUPO)*/
 :root {
     --color-negro-op: rgba(7, 7, 7, 0.8);
@@ -15,6 +9,7 @@
     --color-azul-medio: #0E2940;
     --color-azul-claro: #426A8C;
     --color--azul-gris: #759CBF;
+    --tipografia: Verdana, Geneva, Tahoma, sans-serif;
     /*
     --color-rojo-sangre: #5E2023;
     --color-rojo-medio: #8C031C;
@@ -24,17 +19,11 @@
     
 }
 
-/*CAMBIOS GENERALES, COLOCAR Y MODIFICAR ACORDE A LO QUE SE DEFINA MAS TARDE EN EL ARCHIVO DE ESTILOS PRINCIPALES "styles.css"*/
-
-ul {
-    list-style: none;
-}
-
 /*CAJA PRINCIPAL DE LA SECCION*/
 .events {
     width: 100%;
     height: auto;
-    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(/progra-3-grupo/noctivago-tp1/img_eventos/event-bg.jpeg);
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(/noctivago-tp1/img_eventos/event-bg.jpeg);
     background-position: center;
     background-size: cover;
     display: flex;
@@ -51,6 +40,7 @@ ul {
     color: #fff;
     margin-bottom: 30px;
     font-size: 50px;
+    font-family: var(--tipografia);
 }
 
 
@@ -70,7 +60,7 @@ ul {
 .card {
     position: relative;
     width: 200px;
-    height: 30vh;
+    height: 250px;
     display: flex;
     flex-direction: row;
     border: none;
@@ -87,17 +77,19 @@ ul {
     border: 1px solid var(--color-azul-claro);
 }
 
-.card__pt1,  img {
+.card__pt1, img {
     width: 100%;
     height: 100%;
     border-radius: 20px;
     object-fit:cover;
     filter: blur(0px);
+    opacity: 1;
     transition: filter 0.3s ease;
 }
 
 .card:hover .card__pt1 img {
-    filter: blur(4px);
+    filter: blur(5px);
+    opacity: 0.8;
 
 }
 
@@ -125,9 +117,14 @@ ul {
 }
 
 .card__info {
-    margin-top: 40%;
+    /*margin-top: 40%;*/
     font-variant:normal;
     color: var(--color-blanco);
+    display: block;
+    margin: auto;
+    font-family: var(--tipografia);
+    font-weight: 100;
+    font-size: 12px;
 }
 
 .card__info ul > li {
@@ -143,7 +140,7 @@ ul {
     align-items: center;
     border-radius: 0px 0px 10px 10px;
     width: 100%;
-    height: 6vh;
+    height: 60px;
     background-color: var(--color-azul-claro);
 }
 
