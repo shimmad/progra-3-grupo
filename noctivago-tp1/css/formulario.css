@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color:honeydew;
+    margin: 40px;
+}
+
+h1{
+    color:black;
+    text-align: center;
+
+}
+
+form{
+    background-color:lightgrey;
+    padding: 40px;
+    border-radius: 10px;
+    width: 400px;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="radio"] {
+    width: auto;
+}
+
+button {
+    margin-top: 15px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+p {
+    margin-top: 15px;
+}
+
+.botones{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between; /* o center, o flex-end */
+    gap: 10px;
+}
+
+.botones button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+.botones button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+}
+  
+.botones button[type="reset"] {
+    background-color: #f44336;
+    color: white;
+}
