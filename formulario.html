@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Suscripcion</title>
+</head>
+<body>
+    <h1> Suscripcion de usuario </h1>
+    <form action="/destino" method="POST" target ="_blank">
+        <label for="usuario">Nombre de usuario:</label>
+        <input type="text" id="usuario" name="usuario" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="clave">Contraseña:</label>
+        <input type="password" id="clave" name="clave" required>
+        <br>
+        <p> Quieres que te enviemos informacion adicional a tu mail? </p>
+        <input type="radio" id="si" name="opcion" value="Si">
+        <label for="si">Si, quiero</label><br>
+        <input type="radio" id="no" name="opcion" value="No">
+        <label for="no">No, no quiero</label><br><br>
+        <input type="submit" value="Enviar">
+      
+        <p> Deja tu comentario </p>
+        <label for="comentarios">Comentarios:</label>
+        <textarea id="comentarios" name="comentarios"></textarea>
+
+        <button type="submit">Registrar</button>
+      </form>
+    
+</body>
+</html>
