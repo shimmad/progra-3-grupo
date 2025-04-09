@@ -5,18 +5,14 @@
     margin: 0;
 }
 
-ul {
-    list-style: none;
-}
-
-/*PALETA DE COLORES QUE UTILICE, NO ES LA PRINCIPAL (DISCUTIR LA PALETA DE COLORES EN GRUPO)*/
 :root {
-    --color-negro-op: rgba(7, 7, 7, 0.8);
+    --color-negro-op: rgba(7, 7, 7, 0.5);
+    --color-negro: #020202;
     --color-blanco: #fff;
     --color-azul-oscuro: #092140;
     --color-azul-marino:#0E2F59;
     --color-azul-medio: #0E2940;
-    --color-azul-claro: #426A8C;
+    --color-coral: #c2385b;
     --color--azul-gris: #759CBF;
     --tipografia: Verdana, Geneva, Tahoma, sans-serif;
     
@@ -24,28 +20,46 @@ ul {
 
 /*CAJA PRINCIPAL DE LA SECCION INFO*/
 
+.ev__main {
+    background-color: var(--color-negro);
+    width: 100%;
+    height: 100vh;
+    
+}
+
 .info {
     width: 100%;
     height: 300px;
-    background-color: #0E2F59;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)),url(/noctivago-tp1/img_eventos/portada-eventos.jpg);
+    background-size: cover;
+    background-position: center;
+
+
 }
 
 .info__aboutOf {
     width: 80%;
     height: 100%;
-    gap: 50px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
     text-align: center;
+    font-family: var(--tipografia);
+    margin-top: 50px;
+    color: var(--color-blanco);
+}
+
+.info__aboutOf > h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    display: inline-block;
+    animation: escribir 4s steps(40,end), parpadeo 0.7s step-end initial;
 }
 
 /*CAJA PRINCIPAL DE LA SECCION EVENTOS*/
 .events {
     width: 100%;
     height: auto;
-    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(/noctivago-tp1/img_eventos/event-bg.jpeg);
+    background: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0.3)), url(/noctivago-tp1/img_eventos/gradient-2.jpg);
     background-position: center;
     background-size: cover;
     display: flex;
@@ -61,7 +75,7 @@ ul {
     margin: auto;
     color: #fff;
     margin-bottom: 30px;
-    font-size: 50px;
+    font-size: 40px;
     font-family: var(--tipografia);
 }
 
@@ -96,14 +110,14 @@ ul {
 
 
 .card:hover {
-    border: 1px solid var(--color-azul-claro);
+    border: 1px solid var(--color-coral);
 }
 
 .card__pt1, img {
     width: 100%;
     height: 100%;
     border-radius: 20px;
-    object-fit:cover;
+    object-fit: cover;
     filter: blur(0px);
     opacity: 1;
     transition: filter 0.3s ease;
@@ -127,7 +141,7 @@ ul {
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
-    border: 2px solid var(--color-azul-claro);border-radius: 20px;
+    border: 2px solid var(--color-coral);border-radius: 20px;
     z-index: 1;
     opacity: 0;
     transition: opacity 0.3 ease;
@@ -149,6 +163,10 @@ ul {
     font-size: 12px;
 }
 
+.card__info > ul {
+    list-style: none;
+}
+
 .card__info ul > li {
     margin-bottom: 5px;
 }
@@ -163,7 +181,7 @@ ul {
     border-radius: 0px 0px 10px 10px;
     width: 100%;
     height: 60px;
-    background-color: var(--color-azul-claro);
+    background-color: var(--color-coral);
 }
 
 .card__access button {
