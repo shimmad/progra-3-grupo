@@ -4,6 +4,145 @@
     margin: 0;
 }
 
-ul {
-    list-style: none;
+a{
+    text-decoration: none;
 }
+
+/* aQUI VOY! necesito definir bien los coloros y el estilo parta que tenga coherencia el home. va a ser tematiuca noche, fiesta, vida nocturna. colores como azul negro violeta*/
+nav {
+    background: linear-gradient(to right, #1e0033, #551b8f);
+    padding: 10px 20px;
+  }
+  
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    
+  }
+ 
+  
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+  }
+  
+  .nav-links a {
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s ease;
+     
+
+  }
+  .nav-links a:hover {
+    color: violet;
+  }
+  
+
+h1{
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+    padding: 20px;
+    margin:20px;
+    font-family: dancing, cursive;
+    font-style: italic;
+    letter-spacing: 3px;
+    color:#0e0303;
+    text-shadow:   
+    0 0 5px #9a00ff,
+    0 0 10px #9a00ff,
+    0 0 20px #9a00ff,
+    0 0 40px #ff00ff,
+    0 0 60px #ff00ff; 
+
+
+}
+
+h3{
+    background-color: rebeccapurple(109, 100, 233);
+    text-align: center;
+    font-style: italic;
+    padding: 30px;
+    margin: 20px;
+    font-size: 180%; /*esta bien asi? en porcentaje*/
+    color:#0e0303;
+    text-shadow:   
+    0 0 5px #9a00ff,
+    0 0 10px #9a00ff,
+    0 0 20px #9a00ff,
+    0 0 40px #ff00ff,
+    0 0 60px #ff00ff; 
+    
+
+
+}
+img{
+    
+    border-color: blueviolet;
+    border-style: groove;
+    border-width: 15px;
+    border-radius: 10px;
+    width: 80%; /* Tamaño relativo al ancho del contenedor */
+    max-width: 1000px; /* Nunca más grande de esto */
+    height: auto; /* Mantiene proporciones */
+    display: block;
+    margin: 0 auto; /* Centra horizontalmente */
+ 
+    /*o poner border: 15px groove blueviolet */
+}
+body{
+    background: linear-gradient(to right,black, rgb(87, 30, 87), rgb(20, 20, 124), black);
+}
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .arrow {
+    background-color: transparent;
+    border: none;
+    color: rgb(155, 128, 206);
+    font-size: 4em;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .arrow:hover {
+    transform: scale(1.2);
+  }
+  footer {
+    background: linear-gradient(to right, #1e0033, #330066);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 1em;
+    margin-top: 40px;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .redes a {
+    color: white;
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .redes a:hover {
+    color: violet;
+  }

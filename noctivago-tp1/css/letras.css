@@ -1,0 +1,23 @@
+@font-face {
+    font-family: caveat;
+    src: url(../fonts/static/Caveat-Bold.ttf) format("truetypr");
+    font-weight: 600;
+}
+@font-face {
+    font-family: dancing;
+    src: url(../fonts/static/DancingScript-Bold.ttf) format("truetype");
+    font-weight: 600;
+
+} /*solo use la dancing al final*/
+@font-face {
+    font-family: eduarrow;
+    src: url(../fonts/static/EduAUVICWANTArrows-Bold.ttf) format("truetype");
+    font-weight: 600;
+
+}
+@font-face {
+    font-family: gotic;
+    src: url(../fonts/static/GrenzeGotisch-Bold.ttf) format("truetype");
+    font-weight: 600;
+
+}
