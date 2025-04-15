@@ -91,8 +91,8 @@ img{
     border-width: 15px;
     border-radius: 10px;
     width: 80%; /* Tamaño relativo al ancho del contenedor */
-    max-width: 1000px; /* Nunca más grande de esto */
-    height: auto; /* Mantiene proporciones */
+    max-width: 1000px; /*no mas grande q esto*/
+    height: auto; /* mantiene proporciones */
     display: block;
     margin: 0 auto; /* Centra horizontalmente */
  
