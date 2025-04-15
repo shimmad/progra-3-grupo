@@ -1,17 +1,19 @@
 body {
     font-family: Arial, sans-serif;
-    background-color:honeydew;
+    background-color:#0b0c10;
+    color: #f8f8f8;
     margin: 40px;
 }
 
 h1{
-    color:black;
+    color:mediumpurple;
     text-align: center;
+    margin-bottom: 30px;
 
 }
 
 form{
-    background-color:lightgrey;
+    background-color:#1f2833;
     padding: 40px;
     border-radius: 10px;
     width: 400px;
@@ -24,6 +26,7 @@ label {
     align-items: center;
     gap: 10px;
     margin-top: 5px;
+    color: #c5c6c7;
 }
 
 input, select, textarea {
@@ -32,6 +35,12 @@ input, select, textarea {
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: #0b0c10;
+    color: #f8f8f8;
+}
+
+select, textarea {
+    background-color: #0b0c10;
 }
 
 input[type="radio"] {
@@ -73,12 +82,15 @@ p {
     cursor: pointer;
   }
   
-.botones button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
+.botones button[type="submit"]:hover {
+    background-color: #45a29e;
 }
   
 .botones button[type="reset"] {
-    background-color: #f44336;
+    background-color: #c3073f;
     color: white;
+}
+
+.botones button[type="reset"]:hover {
+    background-color: #950740;
 }
