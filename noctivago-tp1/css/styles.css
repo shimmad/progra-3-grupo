@@ -26,6 +26,10 @@ nav {
     color: white;
     
   }
+  #logo:hover{
+    transition: color 0.3s ease;
+    color:violet
+  }
  
   
   .nav-links {
@@ -55,7 +59,7 @@ h1{
     font-family: dancing, cursive;
     font-style: italic;
     letter-spacing: 3px;
-    color:#0e0303;
+    color:#0e0813;
     text-shadow:   
     0 0 5px #9a00ff,
     0 0 10px #9a00ff,
@@ -84,29 +88,39 @@ h3{
 
 
 }
-img{
-    
-    border-color: blueviolet;
-    border-style: groove;
-    border-width: 15px;
-    border-radius: 10px;
-    width: 80%; /* Tamaño relativo al ancho del contenedor */
-    max-width: 1000px; /*no mas grande q esto*/
-    height: auto; /* mantiene proporciones */
-    display: block;
-    margin: 0 auto; /* Centra horizontalmente */
- 
-    /*o poner border: 15px groove blueviolet */
+img {
+  border: 10px groove blueviolet;
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
 }
+#slide {
+  width: 800px;
+  height: 430px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: all 0.5s ease;
+  
+}
+
+.slider {
+  display: flex;
+  justify-content: center;
+  margin: 40px auto;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+ 
+  
+}
+
 body{
     background: linear-gradient(to right,black, rgb(87, 30, 87), rgb(20, 20, 124), black);
 }
-.slider {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  }
   
   .arrow {
     background-color: transparent;
@@ -115,18 +129,21 @@ body{
     font-size: 4em;
     cursor: pointer;
     transition: transform 0.2s;
+    margin: 20px;
   }
   
   .arrow:hover {
     transform: scale(1.2);
   }
+
   footer {
     background: linear-gradient(to right, #1e0033, #330066);
     color: white;
     padding: 20px 0;
     text-align: center;
     font-size: 1em;
-    margin-top: 40px;
+    margin-top: auto;
+    margin-bottom: 0;
   }
   
   .footer-content {
