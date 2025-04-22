@@ -1,11 +1,12 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--tipografia);
     background-color:#0b0c10;
     color: #f8f8f8;
     margin: 40px;
 }
 
 h1{
+    font-family: var(--tipografia);
     color:mediumpurple;
     text-align: center;
     margin-bottom: 30px;
