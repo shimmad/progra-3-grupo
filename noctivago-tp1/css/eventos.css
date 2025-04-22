@@ -11,7 +11,7 @@
 .ev__main {
     background-color: var(--color-negro);
     width: 100%;
-    /*height: 100vh;*/
+    min-height: 8vh;
     
 }
 
@@ -20,7 +20,7 @@
     height: 300px;
     display: flex;
     justify-content: center;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)),url(/noctivago-tp1/img_eventos/portada-eventos.jpg);
+    background: linear-gradient( 0deg, rgba(0,0,0,1), rgba(0,0,0,0.5)),url(/noctivago-tp1/img_eventos/portada-eventos.jpg);
     background-size: cover;
     background-position: center;
 
@@ -45,9 +45,9 @@
 /*CAJA PRINCIPAL DE LA SECCION EVENTOS*/
 .events {
     width: 100%;
-    height: auto;
-    background: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0.3)), url(/noctivago-tp1/img_eventos/gradient-2.jpg);
-    background-position: center;
+    min-height: 50.2vh;
+    background: linear-gradient(0deg, rgba(85, 27, 143, 0.3) 0%, rgba(154, 0, 255, 0.3) 50%, rgba(0, 0, 0, 1) 100%), url(/noctivago-tp1/img_eventos/gradient-bg.jpg);
+    background-position:top;
     background-size: cover;
     display: flex;
     align-items: center;
@@ -57,6 +57,7 @@
     /*margin: 30px 0px 30px 0px;*/
 }
 
+/*
 .events > h2 {
     display: block;
     margin: auto;
@@ -65,7 +66,7 @@
     font-size: 40px;
     font-family: var(--tipografia);
 }
-
+*/
 
 /*CAJA QUE CONTIENE A TODAS LAS TARJETAS*/
 .event__cards {
@@ -100,7 +101,7 @@
     border: 1px solid var(--color-purpura);
 }
 
-.card__pt1, img {
+.card__pt1, .card__img {
     width: 100%;
     height: 100%;
     border-radius: 20px;
@@ -110,7 +111,7 @@
     transition: filter 0.3s ease;
 }
 
-.card:hover .card__pt1 img {
+.card:hover .card__img {
     filter: blur(5px);
     opacity: 0.8;
 
@@ -180,9 +181,9 @@
 }
 
 .card__access button {
-    color: var(--color-azul-oscuro);
+    color: var(--color-negro);
 }
 
 .card__access button:hover {
-    color: #fff;
+    color: var(--color-violet);
 }

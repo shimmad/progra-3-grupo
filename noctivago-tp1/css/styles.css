@@ -8,13 +8,10 @@
   --color-negro-op: rgba(7, 7, 7, 0.5);
   --color-negro: #020202;
   --color-blanco: #fff;
-  --color-azul-oscuro: #092140;
-  --color-azul-marino:#0E2F59;
-  --color-azul-medio: #0E2940;
   --color-coral: #c2385b;
   --color-purpura: #9a00ff;
-  --color--azul-gris: #759CBF;
-  --tipografia: Roboto;
+  --color-violet: #ee82ee;
+  --tipografia: "Roboto";
   
 }
 
@@ -43,7 +40,7 @@ nav {
   }
   #logo:hover{
     transition: color 0.3s ease;
-    color:violet
+    color:#ee82ee;
   }
  
   
@@ -106,7 +103,6 @@ h3{
     
 
 
-}
 img {
   border: 10px groove blueviolet;
   border-radius: 10px;
@@ -115,6 +111,7 @@ img {
   display: block;
   margin: 20px auto;
 }
+
 #slide {
   width: 800px;
   height: 430px;
