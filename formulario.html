@@ -5,18 +5,20 @@
     <title>Suscripcion</title>
     <link rel="stylesheet" href="/noctivago-tp1/css/formulario.css">
     <link rel="stylesheet" href="/noctivago-tp1/css/styles.css">
+    
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-          <a href="index.html" id="logo">Noctivago</a>
-          <ul class="nav-links">
-            <li><a href="/eventos.html" target="_blank">EVENTOS</a></li>
-            <li><a href="/galeria.html" target="_blank">GALERIA</a></li>
-            <li><a href="/formulario.html" target="_blank">CONTACTO</a></li>
-          </ul>
-        </div>
-    </nav>
+  <nav>
+    <div class="nav-container">
+      <a href="/noctivago-tp1/index.html" id="logo">Noctivago</a>
+      <ul class="nav-links">
+        <li><a href="/noctivago-tp1/eventos.html" target="_blank">EVENTOS</a></li>
+        <li><a href="/galeria.html" target="_blank">GALERIA</a></li>
+        <li><a href="/formulario.html" target="_blank">CONTACTO</a></li>
+      </ul>
+    </div>
+  </nav>
+  
     <h1> SUSCRIPCION DE USUARIO </h1>
     <form action="/destino" method="POST" target ="_blank">
         <label for="usuario">Nombre de usuario:</label>
@@ -34,16 +36,15 @@
         <label for="numero"> Numero de telefono: </label>
         <input type="number" id="numero" name="numero" required>
 
-        <p> Quieres recibir novedades a tu mail? </p>
-        <label for opcion="si">
-            <input type="radio" name="opcion-si" name="opcion" value="Si">
-            Si, quiero
+        
+        <p> ¿Quieres recibir novedades a tu mail? </p>
+        <label>
+          <input type="radio" name="opcion" value="Si"> Si, quiero
         </label><br>
-          
-        <label for opcion="no">
-            <input type="radio" name="opcion-no" name="opcion" value="No">
-            No, no quiero
+        <label>
+          <input type="radio" name="opcion" value="No"> No, no quiero
         </label>
+
 
 
         <p> En caso de querer recibir novedades: </p>
@@ -70,8 +71,9 @@
             <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
           </div>
-        </div>
       </footer>
+      
     
 </body>
 </html>
+
