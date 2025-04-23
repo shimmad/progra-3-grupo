@@ -7,10 +7,22 @@ body {
 }
 
 h1{
-    font-family: var(--tipografia);
-    color:mediumpurple;
     text-align: center;
-    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+    margin:20px;
+    font-family: Roboto;
+    font-weight:900;
+    letter-spacing: 3px;
+    color:#0e0813;
+    text-shadow:   
+    0 0 5px #9a00ff,
+    0 0 10px #9a00ff,
+    0 0 20px #9a00ff,
+    0 0 40px #ff00ff,
+    0 0 60px #ff00ff; 
+-bottom: 30px;
 
 }
 
@@ -20,6 +32,7 @@ form{
     border-radius: 10px;
     width: 400px;
     margin: auto;
+    margin-bottom: 40px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
@@ -144,24 +157,25 @@ footer {
     /*margin-top: auto;
     margin-bottom: 0;*/
     margin: 0px;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-content .redes a {
-    color: #66fcf1;
-    text-decoration: none;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .redes a {
+    color: white;
+    font-size: 1.5em;
     margin: 0 10px;
-    font-weight: bold;
     transition: color 0.3s ease;
-}
-
-.footer-content .redes a:hover {
-    color: mediumpurple;
-}
+  }
+  
+  .redes a:hover {
+    color: violet;
+  }
 
 /* Eliminar flechas de inputs type="numero de telefono" */
 
