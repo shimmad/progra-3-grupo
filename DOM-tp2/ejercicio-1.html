@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <h1 id="tituloPrincipal"> Titulo principal </h1>
+    <p class="parrafo"> Parrafo 1 </p>
+    <p class="parrafo"> Parrafo 2 </p>
+    <div id="contenedor">
+        <ul>
+            <li> Elemento 1 </li>
+            <li> Elemento 2 </li>
+            <li> Elemento 3 </li>
+        </ul>
+
+    </div>
+    <script>
+        //Cambiar el titulo
+        const titulo= document.getElementById("tituloPrincipal");
+        titulo.textContent= "Titulo modificado";
+
+        //Cambiar de color los parrafos
+        let parrafos=document.getElementsByClassName("parrafo");
+        for (let i=0; i<parrafos.length; i++){
+            parrafos[i].style.color = "purple";
+        }
+
+        //Agregar texto a los elementos de la lista
+        const Elementos= document.querySelectorAll("#contenedor ul li");
+        Elementos.forEach(function(elemento){
+            elemento.textContent += "Elemento modificado";  
+        });
+
+    </script>
+    
+</body>
+</html>
