@@ -20,7 +20,7 @@
     height: 300px;
     display: flex;
     justify-content: center;
-    background: linear-gradient( 0deg, rgba(0,0,0,1), rgba(0,0,0,0.5)),url(/noctivago-tp1/img_eventos/portada-eventos.jpg);
+    background: linear-gradient( 0deg, rgba(0,0,0,1), rgba(0,0,0,0.5)),url(../img_eventos/portada-eventos.jpg);
     background-size: cover;
     background-position: center;
 
@@ -46,7 +46,7 @@
 .events {
     width: 100%;
     min-height: 50.2vh;
-    background: linear-gradient(0deg, rgba(85, 27, 143, 0.3) 0%, rgba(154, 0, 255, 0.3) 50%, rgba(0, 0, 0, 1) 100%), url(/noctivago-tp1/img_eventos/gradient-bg.jpg);
+    background: linear-gradient(0deg, rgba(85, 27, 143, 0.3) 0%, rgba(154, 0, 255, 0.3) 50%, rgba(0, 0, 0, 1) 100%), url(../img_eventos/gradient-bg.jpg);
     background-position:top;
     background-size: cover;
     display: flex;
