@@ -30,6 +30,7 @@ function addingWords(){
             console.log('Se agrego');
         }
         else {
+            alert("El campo esta vacio");
             console.log('El campo esta vacio');
         }
     })
