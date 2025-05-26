@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="./punto5.css">
+</head>
+<body>
+    <h1> FORMULARIO </h1>
+    <form id="formulario" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="usuario" required>
+        <span id="errorNombre" style="color: red;"></span>
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span id="errorEmail" style="color: red;"></span>
+        <br>
+
+        <label for="edad">Edad: </label>
+        <input type="number" id="edad" name="numero" required>
+        <span id="errorEdad" style="color: red;"></span>
+
+        <div class="botones">
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+    <footer>
+    </footer>
+    <script src="./punto5.js" defer></script>
+</body>
+</html>

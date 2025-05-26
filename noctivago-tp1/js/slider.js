@@ -1,4 +1,4 @@
-const images = ["imgn/bxxx.png", "imgn/fiesta.png", "imgn/losti.png", "imgn/rich.png"];
+const images = ["img/bxxx.png", "img/fiesta.png", "img/losti.png", "img/rich.png"];
 let index = 0;
 
 document.getElementById("next").addEventListener("click", () => {

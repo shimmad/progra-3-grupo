@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio 2!</title>
+    <style>
+        body{
+            background-color: rgb(159, 156, 241);
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: rgb(60, 62, 218);
+            font-size: 20px;
+            margin: 0px;
+            padding: 0px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: top;
+        
+        }
+        h1{
+            text-align: center;
+            margin: 10px;
+            padding:5px;
+            font-size: 50px;
+            font-style: italic;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .postear{ /*div de que queres omprar*/
+            margin: auto;
+            margin-top: 0;
+            margin-bottom: 0;
+            height: auto;
+            padding: 10px;
+            background-color: rgb(198, 116, 236);
+            border-radius: 10px;
+            width: 500px;
+            
+         
+
+        }
+        .mostrarLista{ /*div de lista de items*/
+            margin: 10px;
+            padding: 10px;
+            background-color: rgb(224, 199, 245);
+            border-radius: 10px;
+            width: 500px;
+            margin: auto;
+            margin-top: 5px;
+            height:100%
+            
+        }
+        #inputItem{
+            margin: 0;
+            padding: 10px;
+            background-color: rgb(234, 215, 241);
+            border-radius: 10px;
+            width: 70%;
+            border: 6px groove rgb(118, 18, 128);
+            color: black;
+            font-family: sans-serif;
+        }
+        #btnAgregar{
+            margin: 0;
+            padding: 10px;
+            background-color: rgb(215, 138, 238);
+            border-radius: 10px;
+            border: 6px groove rgb(139, 38, 170);
+            color: rgb(17, 1, 19);
+            font-family: sans-serif;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgb(156, 57, 202) ;
+            cursor: pointer;
+            
+        }
+        #btnAgregar:hover{
+            opacity: 0.7;
+        }
+        p{ /*items:*/
+            margin: 5;
+            padding: 0;
+            font-family: sans-serif;
+            font-weight: bold;
+            text-align: left;
+        }
+        
+        #listaCompras{ /*ul*/
+            font-family: sans-serif;
+            list-style:lower-roman;
+            text-align: left;
+            color: rgb(60, 62, 218);
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-size: 20px;
+        }
+        /*me gustaria usar la funcion de cuanndo  toco enter se apriete l boton agregar*/
+        /*faltaria agregrle estilo a ll boton de eliminar creado por js y al nuevo itm de la lista creado por js*/
+        .btnEliminar:hover{
+            opacity: 0.7;
+
+        }
+        .btnEliminar {
+          
+          background-color: #d33838;
+          color: #fff;
+          border: none;
+          margin-top: -1px;
+          margin-right: 3px;
+          
+          padding: 5px ;
+          border-radius: 5px;
+          cursor: pointer;
+         position: absolute;
+         right: 0;
+        
+         
+
+      
+        }
+                          
+        .nuevoItem {
+          /* estilos para el nuevo item de la lista */
+          background-color: #e7a5f5;
+          padding: 10px;
+          border-bottom: 1px solid #fca5e9;
+          font-size: 18px;
+          margin: 5px;
+          color: rgb(60, 62, 218);
+          position: relative;
+          
+        }
+        
+       
+    </style>
+</head>
+<body>
+    <h1>lista de compras para tu cumpleaños:</h1>
+    <div class="postear">
+        <input type="text" id="inputItem"  placeholder="que queres comprar?">
+        <button id="btnAgregar">agregar</button>
+    </div>
+    <div class="mostrarLista">
+        <p>items🎉:</p>
+        <ul id="listaCompras"> 
+        </ul>
+    </div>
+    <script>
+        const inputItem = document.getElementById("inputItem");
+        const btnAgregar = document.getElementById("btnAgregar");
+        const listaCompras = document.getElementById("listaCompras");
+
+        btnAgregar.addEventListener("click", () => {
+            if (inputItem.value !== "") {
+
+                const nuevoItem = document.createElement("li");
+                nuevoItem.textContent = inputItem.value;
+                nuevoItem.classList.add("nuevoItem"); // agrego la clase 
+                
+                const btnEliminar = document.createElement("button");
+                btnEliminar.textContent = "Eliminar";
+                btnEliminar.classList.add("btnEliminar"); // agrego la clase
+
+                btnEliminar.addEventListener("click", () => {
+                    listaCompras.removeChild(nuevoItem);
+                });
+
+                listaCompras.appendChild(nuevoItem);
+                nuevoItem.appendChild(btnEliminar);
+
+                inputItem.value = "";
+            } else {
+                alert("Por favor, ingresa un item antes de agregarlo a la lista.");
+            }
+           
+
+        });
+    </script>
+    
+</body>
+
+</html>
