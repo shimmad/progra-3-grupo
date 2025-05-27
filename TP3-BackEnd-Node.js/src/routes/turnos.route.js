@@ -7,4 +7,9 @@ const turnosController = require('../controllers/API/turnos.controller');
 
 router.get('/:idPaciente', turnosController.listByPaciente);
 
+// Eliminar turnos por identificador
+// Endpoint: DELETE /api/v1/turnos/:idTurno
+router.delete('/:idTurno', turnosController.delete);
+
+
 module.exports = router;

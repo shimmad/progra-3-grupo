@@ -13,6 +13,17 @@ class TurnosController {
       res.status(404).json({ mensaje: 'No se encontraron turnos para ese paciente' });
     }
   }
+
+  delete(req, res) {
+    const idTurno = req.params.idTurno;
+    const eliminado = turnosModel.deleteById(idTurno);
+
+    if (eliminado) {
+      res.status(200).json({ mensaje: 'Turno eliminado correctamente' });
+    } else {
+      res.status(404).json({ mensaje: 'Turno no encontrado' });
+    }
+  }
 }
 
 module.exports = new TurnosController();
