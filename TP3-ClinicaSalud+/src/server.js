@@ -45,6 +45,8 @@ class Server {
     this.app.use(express.urlencoded({ extended: true }))
     this.app.use(cookiesParser()) //agrego cookie parser
     this.app.use(morgan('dev'))
+    this.app.use('/img', express.static(path.join(__dirname, 'views', 'ejs', 'img')));
+    
     
   }
 
@@ -53,7 +55,7 @@ class Server {
     this.app.use('/api/v1/turnos', rutaTurnos)
     this.app.use('/',rutaHome)
     this.app.use('/',rutaLogin)
-    
+   
   
     // aca van las otras rutas
 
