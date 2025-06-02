@@ -32,7 +32,7 @@ class Server {
        require.resolve(template);
         
        this.app.set('view engine', template);
-       this.app.set('views', path.join(__dirname, 'views'));
+       this.app.set('views', path.join(__dirname, 'views','ejs'));
      }catch (error) {
         console.log('Error al configurar el motor de plantillas:',template);
         

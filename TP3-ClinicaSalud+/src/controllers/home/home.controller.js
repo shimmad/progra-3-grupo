@@ -6,6 +6,13 @@ const home = async (req, res) => {
         message: '¡Bienvenido a la clinica!'
     })
 }
+const login = async (req, res) => {
+    res.render('login', {
+        title: 'Login',
+        message: 'Iniciar sesion'
+
+    });
+};
 // llam,o a la funcion lista de pacientesmodel (un arreglo de pacientes)
 const pacientes = async (req, res) => {
     try {
@@ -49,6 +56,7 @@ const turnos = async (req, res) => {
 
 module.exports = {
    home,
+   login,
    pacientes,
    turnos
 }
