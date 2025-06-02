@@ -1,0 +1,35 @@
+<!--vista de turnos una vez que ingreso correctam,entre un miembro de la clinica-->
+
+<%- include('partials/head') -%>
+<body>
+    <%- include('partials/header') -%>
+    
+<div class="lista">
+  <h2>Lista de Turnos</h2>
+
+
+  <ul>
+    <% turnos.forEach(turno => { %>
+      <li>
+        Fecha: <%= turno.fecha %> - Hora: <%= turno.hora %> - Paciente: <%= turno.pacienteId %>
+      </li>
+    <% }) %>
+  </ul>
+</div>
+<!--condicional, debe aparecer si sos medico, la variable en el verificar token "esMedico"-->
+<div class="formulario">
+
+  <h2>Registrar nuevo turno</h2>
+  <form id="formTurno" action="/api/v1/turnos" method="POST">
+    <label>Paciente ID: <input type="number" name="pacienteId" required></label><br>
+    <label>Fecha: <input type="text" name="fecha" placeholder="dd/mm/yyyy" required></label><br>
+    <label>Hora: <input type="text" name="hora" placeholder="hh:mm" required></label><br>
+    <button type="submit">Registrar</button>
+  </form>
+</div>
+</body>
+</html>
+<!--
+      
+      <% if (esMedico) { %
+      <H3> agregar nuevo turno -->

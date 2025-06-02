@@ -1,0 +1,12 @@
+<%- include('partials/head') -%>
+<body>  
+    <%- include('partials/header') -%>
+    <main>
+        <h2> <%= message %></h2>
+        <%- include ('partials/tabla_pacientes') -%>
+        <!--agregar formulario para agregar pacientes?, concicional de que sea medico-->
+    </main>
+    <footer>
+        <p>© <%= new Date().getFullYear() %> Clinica Salud +</p>
+    </footer>
+</body>

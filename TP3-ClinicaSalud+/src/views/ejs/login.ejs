@@ -1,0 +1,26 @@
+<!-- formulario de login d personal de la clinica con vista ejs-->
+
+<%- include('partials/head') -%>
+
+<body>
+  <%- include('partials/header') -%>
+  <div class="titulos">
+    <h1>Clinica Salud +</h1>
+    <h2>Login de personal</h2>
+  </div>
+  <% if (typeof error !== 'undefined') { %>
+    <p style="color: red;"><%= error %></p>
+  <% } %>
+  <div class="formulario">
+    <form action="/login" method="POST">
+      <!--cuando la perssona ingres y toca wel botton se manda un post a /login-->
+      <h3>Iniciar sesión</h3>
+      <label>Email:</label>
+      <input type="email" name="email" required /><br/>
+      <label>Contraseña:</label>
+      <input type="password" name="password" required minlength="8" /><br/>
+      <button type="submit">Ingresar</button>
+    </form>
+  </div>
+</body>
+</html>
