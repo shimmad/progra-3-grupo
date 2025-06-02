@@ -1,8 +1,19 @@
 const Server = require('./server.js');
-const {connectDB} = require('./models/sqlite/config/db.js');
+const {connectDB, sequelize} = require('./models/sqlite/config/db.js');
+const {crearDatos, mostrarTurno} = require("./datos.js");
 
+async function main() {
+  try {
+    await connectDB();
+    await crearDatos();
+    await mostrarTurno(1);
 
-connectDB()
-const server = new Server("ejs");
+    const server = new Server("ejs");
+    server.listen();
 
-server.listen();
+  } catch (err) {
+    console.log("Error al sincronizar", err);
+  }
+};
+
+main();

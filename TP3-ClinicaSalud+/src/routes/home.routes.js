@@ -4,9 +4,7 @@ const {home, pacientes, turnos} = require('../controllers/home/home.controller.j
 const verificarToken = require('../middleware/verify.token');
 
 
-
-
-rutahome.get('/', verificarToken, home);
+rutahome.get('/', home);//verificarToken
 rutahome.get('/pacientes', verificarToken, pacientes);
 rutahome.get('/turnos', verificarToken, turnos);
 
