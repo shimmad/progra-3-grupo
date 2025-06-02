@@ -5,7 +5,7 @@
     <main>
         <h2> <%= message %></h2>
         <div class="imagen-principal">
-            <img src="img/imagen-principal.jpg" alt="Imagen principal">
+            <img src="./img/clinica_!.jpg" alt="Imagen principal">
         </div>
         <article class="info_clinica">
             <div class="info_clinica_texto">
@@ -19,8 +19,6 @@
 
     <%# Esto es un comentario (no se renderiza en el HTML) %>
     
-    <footer>
-        <p>© <%= new Date().getFullYear() %> Clinica Salud +</p>
-    </footer>
+  <%- include('partials/footer') -%>
 </body>
 </html>
