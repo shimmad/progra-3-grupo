@@ -7,9 +7,29 @@ const Paciente = sequelize.define('Paciente', {
     primaryKey: true,
     autoIncrement: true
   },
-  nombre: DataTypes.STRING,
+  nombre: {
+    type:DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty:{msg:'El nombre no puede estar vacio'}
+    }
+  },
   email: DataTypes.STRING,
-  dni: DataTypes.INTEGER
+  dni: { 
+    type:DataTypes.INTEGER, 
+    allowNull: false,
+    unique: {
+      msg: 'El DNI ya esta registrado'
+    },
+    validate: {
+      notEmpty: {
+        msg:'El DNI no puede estar vacio'
+      },
+      isNumeric: {
+      msg:'El DNI debe contener solo numeros'
+      }
+    }
+  }
 });
 
 module.exports = Paciente;

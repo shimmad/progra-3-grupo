@@ -1,6 +1,8 @@
 const  express = require('express');
 const  dotenv = require('dotenv');
-const rutaPacientes = require('./routes/pacientes.route.js')
+const rutaPacientes = require('./routes/pacientes.route.js');
+const rutaPacienteDB = require('./routes/pacienteDB.routes.js');
+const rutaTurnosDB = require('./routes/turnoDB.routes.js');
 const rutaHome = require('./routes/home.routes.js');
 const rutaLogin = require('./routes/auth.routes.js');
 const morgan = require('morgan');
@@ -58,7 +60,8 @@ class Server {
    
   
     // aca van las otras rutas
-
+    this.app.use('/db/v1/pacientes', rutaPacienteDB);
+    this.app.use('/db/v1/turnos', rutaTurnosDB);
   }
 
   listen () {

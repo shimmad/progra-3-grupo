@@ -7,7 +7,4 @@ rutaPacientes.post('/',pacientesController.create);
 rutaPacientes.put('/:id',pacientesController.update);
 rutaPacientes.delete('/:id',pacientesController.delete);
 
-//Otras rutas CRUD
-
-
 module.exports = rutaPacientes;

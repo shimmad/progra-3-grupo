@@ -34,7 +34,7 @@ async function crearDatos() {
         ]
         });
     
-        console.log(turnoConDatos.toJSON());
+        //console.log(turnoConDatos.toJSON());
 
     }catch(error){
         console.error('Error creando datos:', error);

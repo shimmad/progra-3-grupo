@@ -1,0 +1,37 @@
+const Paciente = require('../../models/sqlite/entities/paciente.entity');
+console.log('Paciente:', Paciente);
+
+exports.obtenerPacientes = async (req,res)=> {
+    try {
+        const pacientes = await Paciente.findAll();
+        res.json(pacientes);
+    }
+    catch (error){
+        res.status(500).json({error: error.message});
+    }
+};
+
+exports.obtenerPacientesID = async (req,res)=>{
+    try {
+        const paciente = await Paciente.findByPk(req.params.id);
+        if (!paciente){
+            return res.status(404).json({message: 'Paciente no encontrado'});
+        }
+        res.status(200).json(paciente);
+    } catch (error) {
+        res.status(500).json({message:error.message});
+    }
+}
+
+exports.borrarPaciente = async (req,res) => {
+    const paciente = await Paciente.findByPk(req.params.id);
+    try{
+        await paciente.destroy();
+        res.status(204).send();
+    }
+    catch {
+        if (!paciente) {
+        return res.status(404).json({ message: 'Paciente no encontrado' });
+        }   
+    }
+};
