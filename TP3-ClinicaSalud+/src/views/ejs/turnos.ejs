@@ -140,7 +140,13 @@
       <ul>
         <% turnos.forEach(turno => { %>
           <li>
-            <span><strong>Fecha:</strong> <%= turno.fecha %> — <strong>Hora:</strong> <%= turno.hora %> — <strong>Paciente:</strong> <%= turno.pacienteId %></span>
+            <span>
+              <strong>Fecha:</strong> <%= turno.fecha %> — 
+              <strong>Hora:</strong> <%= turno.hora %> — 
+              <strong>Paciente:</strong> <%= turno.Paciente?.nombre %> <%= turno.Paciente?.apellido %> — 
+              <strong>Medico:</strong> <%= turno.Medico?.nombre %>
+
+              </span>
             <% if (esMedico) { %>
               <div class="acciones">
                 <form action="/api/v1/turnos/<%= turno._id %>" method="POST">

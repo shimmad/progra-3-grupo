@@ -6,10 +6,13 @@ async function crearDatos() {
 
         const paciente = await Paciente.create({
         id: 1,
-        nombre: 'Juan Perez',
+        nombre: 'Juan',
+        apellido: 'Perez',
         email:"juanitoPerez@gmail.com",
         dni: '12345678'
         });
+
+        
 
         const medico = await Medico.create({
         id:1,
@@ -26,15 +29,6 @@ async function crearDatos() {
         pacienteId: paciente.id,
         
         });
-
-        const turnoConDatos = await Turno.findByPk(1, {
-        include: [
-        { model: Paciente },
-        { model: Medico }
-        ]
-        });
-    
-        //console.log(turnoConDatos.toJSON());
 
     }catch(error){
         console.error('Error creando datos:', error);

@@ -14,9 +14,15 @@ const Paciente = sequelize.define('Paciente', {
       notEmpty:{msg:'El nombre no puede estar vacio'}
     }
   },
-  email: DataTypes.STRING,
+  apellido: {
+    type:DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty:{msg:'El apellido no puede estar vacio'}
+    }
+  },
   dni: { 
-    type:DataTypes.INTEGER, 
+    type:DataTypes.INTEGER,
     allowNull: false,
     unique: {
       msg: 'El DNI ya esta registrado'

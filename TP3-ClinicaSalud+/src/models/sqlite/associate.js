@@ -10,7 +10,7 @@ Paciente.hasMany(Turno, {foreignKey:"pacienteId"});
 
 //Un turno pertenece a un medico 
 Turno.belongsTo(Medico,{foreignKey:"medicoId"});
-Medico.hasMany(Turno, {foreignKey:"pacienteId"});
+Medico.hasMany(Turno, {foreignKey:"medicoId"});
 
 module.exports={
     Paciente,

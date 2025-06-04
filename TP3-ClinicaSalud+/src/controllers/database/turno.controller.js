@@ -6,9 +6,9 @@ exports.mostrarTurno = async(req, res) => {
     try {
             const turnos = await Turno.findAll({
             include: [
-            { model: Paciente },
-            { model: Medico }
-        ]
+                { model: Paciente, attributes: ['nombre'] ['apellido']},
+                { model: Medico, attributes: ['nombre']}
+            ]
         });  
             res.json(turnos);
         }
