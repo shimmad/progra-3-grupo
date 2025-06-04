@@ -2,69 +2,130 @@
 
 <%- include('partials/head') -%>
 <style>
-  .formulario {
-    background-color: #f1f1f1;
+  body{
+         margin:0;
+        font-family: 'Roboto', sans-serif;
+        background-image: url('./img/clinica_6.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        color:#0e0813;
+
+  }
+  .contenedor-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 65vh;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    margin: 20px auto;
-    width: 80%;
-    max-width: 400px;
-  }
 
-  .formulario h3 {
-    text-align: center;
+  }
+  .titulo-login {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    font-size: 28px;
+    font-weight: 700;
+    color: #0e0813;
     margin-bottom: 20px;
+  
   }
-
-  .formulario label {
-    display: block;
-    margin-bottom: 10px;
-  }
-
-  .formulario input[type="email"],
-  .formulario input[type="password"] {
+  .formulario {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
     width: 90%;
+    max-width: 400px;
+    
+    
+  }
+  .formulario h3{
+       text-align: center;
+    margin-bottom: 25px;
+    font-size: 22px;
+    font-weight:400;
+    color: #102358;
+  }
+  .formulario label {
+     display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #0e0813;
+  }
+    .formulario input[type="email"],
+  .formulario input[type="password"] {
+    width: 100%;
     padding: 10px;
-    border-radius: 5px;
-    border: none;
+    border-radius: 8px;
+    border: 1px solid #ccc;
     margin-bottom: 20px;
+    font-size: 14px;
   }
 
   .formulario button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
+    background-color: #71cbd1;
+    color: #0e0813;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
     border: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+
+  .formulario button[type="submit"]:hover {
+    background-color: #4dbdc4;
     cursor: pointer;
   }
-  h2 {
+
+  .mensaje-error {
+    color: red;
     text-align: center;
-    margin-bottom: 20px;
-    
+    margin-bottom: 15px;
+    font-weight: bold;
   }
+
+  @media screen and (max-width: 600px) {
+    .titulo-login {
+      font-size: 22px;
+      padding: 15px 20px;
+    }
+
+    .formulario {
+      padding: 20px;
+    }
+  }
+
 </style>
 <body>
   <%- include('partials/header') -%>
-  <div class="titulos">
-    <h1>Clinica Salud +</h1>
-    <h2>Login de personal</h2>
+
+  <div class="contenedor-login">
+    <div class="titulo-login">Login de Personal</div>
+
+    <% if (typeof error !== 'undefined') { %>
+      <p class="mensaje-error"><%= error %></p>
+    <% } %>
+
+    <div class="formulario">
+      <form action="/login" method="POST">
+        <h3>Iniciar sesión</h3>
+        <label>Email:</label>
+        <input type="email" name="email" required />
+
+        <label>Contraseña:</label>
+        <input type="password" name="password" required minlength="8" />
+
+        <button type="submit">Ingresar</button>
+      </form>
+    </div>
   </div>
-  <% if (typeof error !== 'undefined') { %>
-    <p style="color: red;"><%= error %></p>
-  <% } %>
-  <div class="formulario">
-    <form action="/login" method="POST">
-      <!--cuando la perssona ingres y toca wel botton se manda un post a /login-->
-      <h3>Iniciar sesión</h3>
-      <label>Email:</label>
-      <input type="email" name="email" required /><br/>
-      <label>Contraseña:</label>
-      <input type="password" name="password" required minlength="8" /><br/>
-      <button type="submit">Ingresar</button>
-    </form>
-  </div>
+
   <%- include('partials/footer') -%>
 </body>
 </html>

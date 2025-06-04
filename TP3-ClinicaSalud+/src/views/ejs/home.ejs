@@ -1,19 +1,171 @@
 <%- include('partials/head') -%>
+<style>
+    .titulo-principal {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #71cbd1;
+        font-size: 30px;
+        font-weight: bold;
+        padding: 20px;
+        margin:20px;
+        font-family: Roboto;
+        font-weight:900;
+        letter-spacing: 3px;
+        color:#0e0813;
+    }
+    body{
+        margin:0;
+        font-family: 'Roboto', sans-serif;
+        background-image: url('./img/clinica_5.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        color:#0e0813;
+
+    }
+    .container{
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+
+    }
+    main{
+        background-color: #f8f8f88c;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        
+       
+
+
+    }
+    .titulo-principal{
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 30px;
+        font-weight: bold;
+        padding: 20px;
+        margin:20px;
+        font-family: Roboto;
+        font-weight:900;
+        letter-spacing: 3px;
+        color:#0e0813;
+    }
+    .info{
+     background-color: #ffffffcc;
+    color: #0e0813;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    text-align: center;
+    padding: 20px;
+    margin: 30px 0;
+    border-left: 5px solid #71cbd1;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+  
+    h2{
+        color: 329da 8px;
+        margin-bottom: 15px;
+    }
+    h4{
+        color: #102358;
+        margin-bottom: 15px;
+        text-align: center;
+        background-color: rgb(253, 245, 130);
+    }
+    .info-section{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top:30px;
+        gap:20px;
+    }
+    .info-box{
+        flex: 1 1 45%;
+        background-color: #ffffffcc;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .info-box h2{
+        color:#0e0813;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #71cbd1;
+        padding-bottom:5px ;
+
+    }
+    .servicios-medicos{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap:15px;
+        list-style: none;
+        padding: 0;
+        margin-top: 15px;
+    }
+    .servicios-medicos li{
+        background-color: #71cbd1;
+        color: #0e0813;
+        font-weight: bold;
+        text-align: center;
+        padding: 12px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        transition: transform 0.2s ease;
+    }
+    .servicios-medicos li:hover{
+        transform: scale(1.05);
+        cursor: default;
+    }
+
+  
+    @media screen and (max-width: 768px) {
+        .info_clinica {
+            flex-direction: column;
+        }
+        main {
+            width: 95%;
+            padding: 20px;
+        }
+    }
+    
+</style>
 <body>
     <%- include('partials/header') -%>
-
+    <div class="container">
     <main>
-        <h2> <%= message %></h2>
-        <div class="imagen-principal">
-            <img src="./img/clinica_!.jpg" alt="Imagen principal">
+        <h2 class="titulo-principal"> <%= message %></h2>
+        <h4>Horario de atención: Lunes a Viernes de 8:00 a 18:00, Sábados de 8:00 a 14:00</h4>
+       
+   
+          
+        <p class="info">Nuestra clínica de salud ofrece una amplia gama de servicios médicos, desde consultas generales hasta especialidades médicas avanzadas. Contamos con un equipo de profesionales altamente capacitados para brindar un servicio de excelencia.</p>
+                
+                
+        <div class="info_clinica">
+            <div class="info_box">
+                <h2>Servicios</h2>
+                <ul class="servicios-medicos">
+                    <li>Medicina general</li>
+                    <li>Cardiología</li>
+                    <li>Neurología</li>
+                    <li>Pediatria</li>
+                    <li>Urgencias</li>
+                </ul>
+            </div>  
+            <div class="info-box">
+                <h2>Contacto</h2>
+                <p>Teléfono: (123) 456-7890</p>
+                <p>Correo electrónico: ClinicaSalud@bvconline.com</p>
+                <p>Sarmiento 1550, Bahia Blanca, Buenos Aires</p>
+            </div>
         </div>
-        <article class="info_clinica">
-            <div class="info_clinica_texto">
-                <h2>Información de la Clínica</h2>
-                <p>Estamos ubicados en la Av. San Martín 1234, San Martín, Buenos Aires. Ofrecemos servicios de salud y atención médica de calidad.</p>
-
-        </article>
+        
     </main>
+    </div>
     
  
 

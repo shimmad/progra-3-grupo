@@ -3,19 +3,21 @@ const jwt = require('jsonwebtoken');
 
 function verifyToken(req, res, next) {
   const token = req.cookies.token;
-  if (!token) {
-    res.locals.esMedico = false;
-    return next(); // permite ver los contenidos pero sin acciones
-  }
-  try	{
-    const decoded = jwt.verify(token, 'claveSecreta');
+  res.locals.esMedico = false;
+
+  if (!token) return next();
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'claveSecreta');
+    req.usuario = decoded; // esto lo uso en el renderizado en home.controller
     res.locals.esMedico = decoded.rol === 'medico';
-    next();
   } catch (error) {
-    res.locals.esMedico = false;
-    next();
+    console.error('Token inválido:', error.message);
   }
+
+  next();
 }
+
 module.exports = verifyToken;
 
 

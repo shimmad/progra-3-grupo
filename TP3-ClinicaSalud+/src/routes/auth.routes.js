@@ -1,6 +1,6 @@
 const express = require('express');
 const rutaLogin = express.Router();
-const { procesarLogin } = require('../controllers/home/auth.controller.js');
+const { procesarLogin } = require('../controllers/auth.controller.js');
 const { login } = require('../controllers/home/home.controller.js');
 
 
