@@ -1,0 +1,20 @@
+<%- include('partials/head') -%>
+
+<body>
+    <%- include('partials/header') -%>
+
+    <h1>Registrar nuevo paciente</h1>
+    <section>
+        <form action="/pacientes/registro" method="POST">
+            <label>Nombre</label>
+            <input type="text" name="nombre" required>
+            <label>Apellido</label>
+            <input type="text" name="apellido" required>
+            <label>DNI</label>
+            <input type="text" name="dni" required>
+            <button type="submit">Registrar</button>
+        </form>
+    </section>
+
+    <%- include('partials/footer') -%>
+</body>

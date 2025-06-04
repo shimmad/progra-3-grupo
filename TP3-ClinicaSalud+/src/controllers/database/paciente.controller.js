@@ -23,6 +23,23 @@ exports.obtenerPacientesID = async (req,res)=>{
     }
 }
 
+exports.registrarPaciente = async (req, res) => {
+    try {
+        const {nombre, apellido, dni} = req.body;
+
+        await Paciente.create({
+            nombre,
+            apellido,
+            dni
+        })
+        res.redirect('/pacientes');
+
+    } catch (error) {
+        console.log('Error al registrar al paciente', error);
+        res.status(500).send('Error al registrar paciente');
+    }
+}
+
 exports.borrarPaciente = async (req,res) => {
     const paciente = await Paciente.findByPk(req.params.id);
     try{
