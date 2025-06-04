@@ -60,8 +60,9 @@ class Server {
    
   
     // aca van las otras rutas
-    this.app.use('/db/v1/pacientes', rutaPacienteDB);
-    this.app.use('/db/v1/turnos', rutaTurnosDB);
+    this.app.use('/pacientes', rutaPacienteDB);
+    this.app.use('/turnos', rutaTurnosDB);
+    this.app.use('/turnos/:id',rutaTurnosDB);
   }
 
   listen () {

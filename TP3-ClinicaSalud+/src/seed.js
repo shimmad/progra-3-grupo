@@ -12,21 +12,51 @@ async function crearDatos() {
         dni: '12345678'
         });
 
-        
+        const paciente2 = await Paciente.create({
+        id: 2,
+        nombre: 'Romina',
+        apellido: 'Sanchez',
+        email:"sanchezRomi@gmail.com",
+        dni: '14786478'
+        });
+
+        const paciente3 = await Paciente.create({
+        id: 3,
+        nombre: 'Eladio',
+        apellido: 'Rios',
+        email:"eladioR@gmail.com",
+        dni: '35786342'
+        });
 
         const medico = await Medico.create({
         id:1,
-        nombre: 'Dra. Gómez',
+        nombre: 'Dra. Lucia Gómez',
         especialidad: 'Dermatología',
         email: "LucianaGomez@gmail.com",
         password: "123456y"
         });
 
         const turno = await Turno.create({
-        fecha: '2025-06-10',
+        fecha: '10-06-2025',
         hora: '09:00',
         medicoId: medico.id,
         pacienteId: paciente.id,
+        
+        });
+
+        const turno2 = await Turno.create({
+        fecha: '15-06-2025',
+        hora: '10:00',
+        medicoId: medico.id,
+        pacienteId: paciente2.id,
+        
+        });
+
+        const turno3 = await Turno.create({
+        fecha: '17-06-2025',
+        hora: '10:00',
+        medicoId: medico.id,
+        pacienteId: paciente3.id,
         
         });
 
