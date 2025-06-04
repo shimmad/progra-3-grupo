@@ -11,15 +11,21 @@ exports.procesarLogin = (req, res) => { //click en ingresar
   const { email, password } = req.body; //verifica con joi, si es valido crea token y lo devulve
 
   //valido con joi
-  const schema = Joi.object({
-    email: Joi.string().email().required(),
-    password: Joi.string().min(6).required()
-  });
+  const loginSchema = Joi.object({
+    email: Joi.string().email().required().messages({
+        'string.empty': 'El email es obligatorio.',
+        'string.email': 'El email debe tener un formato válido.'
+}),
+password: Joi.string().min(6).required().messages({
+    'string.empty': 'La contraseña es obligatoria.',
+    'string.min': 'La contraseña debe tener al menos 6 caracteres.'
+})
+});
 
-  const { error } = schema.validate({ email, password });
+  const { error } = loginSchema.validate({ email, password });
 
   if (error) {
-    return res.status(400).render('login', { error: error.details[0].message["datos erroneos"] });
+    return res.status(400).render('login', { error: error.details[0].message });
   }
   // esto es de prueba pero deberia ver como conecto con la base de datos
   //si el email es admin@clinica.com y la clave admin, se acepta
