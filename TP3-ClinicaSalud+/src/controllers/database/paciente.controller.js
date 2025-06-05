@@ -1,5 +1,4 @@
 const Paciente = require('../../models/sqlite/entities/paciente.entity');
-console.log('Paciente:', Paciente);
 
 exports.obtenerPacientes = async (req,res)=> {
     try {
@@ -27,12 +26,13 @@ exports.registrarPaciente = async (req, res) => {
     try {
         const {nombre, apellido, dni} = req.body;
 
-        await Paciente.create({
+        const nuevoPaciente = await Paciente.create({
             nombre,
             apellido,
             dni
         })
         res.redirect('/pacientes');
+        console.log('Paciente guardado con ID:', nuevoPaciente.id);
 
     } catch (error) {
         console.log('Error al registrar al paciente', error);

@@ -5,10 +5,6 @@ const {crearDatos, mostrarTurno} = require("./seed.js");
 async function main() {
   try {
     await connectDB();
-    await crearDatos();
-    await mostrarTurno(1);
-    await mostrarTurno(2);
-    await mostrarTurno(3);
 
     const server = new Server("ejs");
     server.listen();

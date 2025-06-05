@@ -131,6 +131,7 @@
       <table>
         <thead>
           <tr>
+            <th>ID</th>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>DNI</th>
@@ -142,6 +143,7 @@
         <tbody>
           <% pacientes.forEach(p => { %>
             <tr>
+              <td><%= p.id %></td>
               <td><%= p.nombre %></td>
               <td><%= p.apellido %></td>
               <td><%= p.dni %></td>

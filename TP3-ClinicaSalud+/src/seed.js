@@ -77,8 +77,6 @@ async function mostrarTurno(idTurno) {
         return;
         }
         
-        console.log(turnoConDatos.toJSON());
-        
     }catch(error){
         console.log("Error consultando el turno:", error);
     }

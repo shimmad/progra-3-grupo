@@ -5,7 +5,8 @@ const Medico = sequelize.define('Medico', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
+    allowNull: false
   },  
   nombre: {
     type: DataTypes.STRING,
