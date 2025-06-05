@@ -59,7 +59,7 @@ exports.eliminarTurno = async(req,res) => {
         console.log('Turno eliminado:', req.params.id);
         res.redirect('/turnos');
     }
-    catch {
+    catch (error) {
         console.error('Error al eliminar turno:', error.message);
         res.status(500).send('Error al eliminar el turno');
         }   

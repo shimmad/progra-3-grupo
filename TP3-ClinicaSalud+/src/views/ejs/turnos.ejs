@@ -149,8 +149,7 @@
               </span>
             <% if (esMedico) { %>
               <div class="acciones">
-                <form action="/turnos/<%= turno.id %>" method="POST">
-                  <input type="hidden" name="_method" value="DELETE">
+                <form action="/turnos/<%= turno.id %>?_method=DELETE"" method="POST">
                   <button type="submit">Eliminar</button>
                 </form>
                 <a href="">Editar</a>
