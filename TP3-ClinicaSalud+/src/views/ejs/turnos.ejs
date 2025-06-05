@@ -138,28 +138,33 @@
     <div class="lista">
       <h2>Lista de Turnos</h2>
       <ul>
-        <% turnos.forEach(turno => { %>
-          <li>
-            <span>
-              <strong>Fecha:</strong> <%= turno.fecha %> — 
-              <strong>Hora:</strong> <%= turno.hora %> — 
-              <strong>Paciente:</strong> <%= turno.Paciente?.nombre %> <%= turno.Paciente?.apellido %> — 
-              <strong>Medico:</strong> <%= turno.Medico?.nombre %>
+        <% if(turnos.length > 0){ %>
+          <% turnos.forEach(turno => { %>
+            <li>
+              <span>
+                <strong>Fecha:</strong> <%= turno.fecha %> — 
+                <strong>Hora:</strong> <%= turno.hora %> — 
+                <strong>Paciente:</strong> <%= turno.Paciente?.nombre %> <%= turno.Paciente?.apellido %> — 
+                <strong>Medico:</strong> <%= turno.Medico?.nombre %>
 
-              </span>
-            <% if (esMedico) { %>
-              <div class="acciones">
-                <form action="/turnos/<%= turno.id %>?_method=DELETE"" method="POST">
-                  <button type="submit">Eliminar</button>
-                </form>
-                <a href="">Editar</a>
-              </div>
-            <% } %>
-          </li>
-        <% }) %>
+                </span>
+              <% if (esMedico) { %>
+                <div class="acciones">
+                  <form action="/turnos/<%= turno.id %>?_method=DELETE"" method="POST">
+                    <button type="submit">Eliminar</button>
+                  </form>
+                  <a href="">Editar</a>
+                </div>
+              <% } %>
+            </li>
+          <% }) %>
+        <% } else { %>
+        <p style="color: #e25757; text-align: center;" >No hay turnos disponibles</p>
+        <% } %>    
       </ul>
     </div>
 
+    
     <% if (esMedico) { %>
       <div class="formulario">
         <h2>Registrar nuevo turno</h2>
