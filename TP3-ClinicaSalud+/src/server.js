@@ -42,7 +42,7 @@ class Server {
 
   }
   middleware () {
-    // this.app.use('/', express.static('public'))
+    this.app.use('/', express.static(path.join(__dirname,'public')))
     this.app.use(express.json())
     this.app.use(express.urlencoded({ extended: true }))
     this.app.use(cookiesParser()) //agrego cookie parser
