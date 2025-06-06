@@ -64,3 +64,29 @@ exports.eliminarTurno = async(req,res) => {
         res.status(500).send('Error al eliminar el turno');
         }   
     };
+
+
+exports.cargarTurno = async (req, res) => {
+  try {
+    const { fecha, hora, pacienteId } = req.body;
+
+    if (!fecha || !hora || !pacienteId) {
+      return res.status(400).json({ message: 'Faltan datos obligatorios' });
+    }
+
+    const nuevoTurno = await Turno.create({
+      fecha,
+      hora,
+      pacienteId,
+      medicoId: 1 // Único médico disponible
+    });
+
+    return res.status(201).json({
+      message: 'Turno creado correctamente',
+      turno: nuevoTurno
+    });
+  } catch (error) {
+    console.error('Error al crear turno:', error.message);
+    return res.status(500).json({ message: 'Error interno del servidor' });
+  }
+};

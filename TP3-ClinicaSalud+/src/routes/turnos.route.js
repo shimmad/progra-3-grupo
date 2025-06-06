@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const turnosController = require('../controllers/API/turnos.controller');
+
+const { verifyTokenAPI } = require('../middleware/verify.token');
+router.post('/api/v1/turnos', verifyTokenAPI, turnosController.cargarTurno);
+
+
 //const verifyToken= require('../middleware/verify.token')
 // Consultar turnos por identificador
 // Endpoint: GET /api/v1/turnos/:idPaciente

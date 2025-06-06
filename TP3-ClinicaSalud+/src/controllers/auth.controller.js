@@ -32,7 +32,7 @@ password: Joi.string().min(6).required().messages({
   if (email === 'admin@clinica.com' && password === 'admin1234') {
       const token = jwt.sign(
     { email, rol: 'medico' }, 
-    'claveSecreta',
+    process.env.JWT_SECRET,//H
     { expiresIn: '24h' }
   );
 
