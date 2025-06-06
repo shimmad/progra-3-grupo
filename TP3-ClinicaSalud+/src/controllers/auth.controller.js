@@ -30,11 +30,14 @@ password: Joi.string().min(6).required().messages({
   // esto es de prueba pero deberia ver como conecto con la base de datos
   //si el email es admin@clinica.com y la clave admin, se acepta
   if (email === 'admin@clinica.com' && password === 'admin1234') {
-    const token = jwt.sign({ email }, 'claveSecreta', { expiresIn: '24h' });//crea token
-    
-    //guardo token en cookie para q las vistas lo puedan usar
-    res.cookie('token', token, { httpOnly: true});
-    return res.redirect('/turnos');
+      const token = jwt.sign(
+    { email, rol: 'medico' }, 
+    'claveSecreta',
+    { expiresIn: '24h' }
+  );
+
+  res.cookie('token', token, { httpOnly: true });
+  return res.redirect('/turnos');
   }
   /*El token no se pide manualmente. Se guarda al hacer login y se usa automáticamente en el formulario de nuevos turnos */ 
 

@@ -10,7 +10,7 @@ dotenv.config()
 const rutaTurnos = require('./routes/turnos.route.js');
 const path = require('path');
 const cookiesParser = require('cookie-parser'); //para verificar cookies, autenticacion de medico
-
+const methodOverride = require('method-override');
 
 
 class Server {
@@ -42,26 +42,27 @@ class Server {
 
   }
   middleware () {
-    this.app.use('/', express.static(path.join(__dirname,'public')))
-    this.app.use(express.json())
-    this.app.use(express.urlencoded({ extended: true }))
-    this.app.use(cookiesParser()) //agrego cookie parser
-    this.app.use(morgan('dev'))
+    // this.app.use('/', express.static('public'))
+    this.app.use(express.json());
+    this.app.use(express.urlencoded({ extended: true }));
+    this.app.use(methodOverride('_method'));
+    this.app.use(cookiesParser()); //agrego cookie parser
+    this.app.use(morgan('dev'));
     this.app.use('/img', express.static(path.join(__dirname, 'views', 'ejs', 'img')));
-    
-    
   }
 
   rutas () {
     this.app.use('/api/v1/pacientes', rutaPacientes)
-    this.app.use('/api/v1/turnos', rutaTurnos)
+    //this.app.use('/api/v1/turnos', rutaTurnos)
     this.app.use('/',rutaHome)
     this.app.use('/',rutaLogin)
    
   
     // aca van las otras rutas
-    this.app.use('/db/v1/pacientes', rutaPacienteDB);
-    this.app.use('/db/v1/turnos', rutaTurnosDB);
+    this.app.use('/pacientes', rutaPacienteDB);
+    this.app.use('/turnos', rutaTurnosDB);
+   
+   
   }
 
   listen () {

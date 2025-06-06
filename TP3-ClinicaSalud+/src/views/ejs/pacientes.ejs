@@ -1,5 +1,6 @@
 <%- include('partials/head') -%>
 <link rel="stylesheet" href="/css/pacientes.css">
+
 <body>  
   <%- include('partials/header') -%>
   <main>
@@ -9,6 +10,7 @@
       <table>
         <thead>
           <tr>
+            <th>ID</th>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>DNI</th>
@@ -20,6 +22,7 @@
         <tbody>
           <% pacientes.forEach(p => { %>
             <tr>
+              <td><%= p.id %></td>
               <td><%= p.nombre %></td>
               <td><%= p.apellido %></td>
               <td><%= p.dni %></td>
@@ -36,7 +39,7 @@
         </tbody>
       </table>
     <% } else { %>
-      <p style="text-align: center;">No hay pacientes para mostrar.</p>
+      <p style="text-align:center; color: #e25757;">No hay pacientes para mostrar.</p>
     <% } %>
 
     <% if (esMedico) { %>

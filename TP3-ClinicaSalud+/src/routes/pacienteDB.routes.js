@@ -5,7 +5,10 @@ const rutaPacienteDB = Router();
 
 //rutas CRUD BASE DE DATOS
 rutaPacienteDB.get('/',pacienteControllerDB.obtenerPacientes);
+rutaPacienteDB.post('/', pacienteControllerDB.registrarPaciente);
 rutaPacienteDB.get('/:id', pacienteControllerDB.obtenerPacientesID);
 rutaPacienteDB.delete('/:id', pacienteControllerDB.borrarPaciente);
+
+
 
 module.exports = rutaPacienteDB;
