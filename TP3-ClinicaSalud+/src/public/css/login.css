@@ -85,6 +85,23 @@
     margin-bottom: 15px;
     font-weight: bold;
   }
+  #cerrarSesion{
+      background-color: #8ae4eb;
+    color: #0e0813;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+
+  }
+  #cerrarSesion:hover {
+    background-color: #66d5dd;
+    cursor: pointer;
+  }
 
   @media screen and (max-width: 600px) {
     .titulo-login {

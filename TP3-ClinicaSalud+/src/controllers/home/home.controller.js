@@ -12,7 +12,10 @@ const home = async (req, res) => {
 const login = async (req, res) => {
     res.render('login', {
         title: 'Login',
-        message: 'Iniciar sesion'
+        message: 'Iniciar sesion',
+        usuario: res.locals.usuario,
+        esMedico: res.locals.esMedico
+
 
     });
 };

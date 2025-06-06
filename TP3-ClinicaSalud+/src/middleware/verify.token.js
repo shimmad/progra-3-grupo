@@ -4,12 +4,14 @@ const jwt = require('jsonwebtoken');
 function verifyToken(req, res, next) {
   const token = req.cookies.token;
   res.locals.esMedico = false;
+  res.locals.usuario = null;
 
   if (!token) return next();
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET || 'claveSecreta');
-    req.usuario = decoded; // esto lo uso en el renderizado en home.controller
+    req.usuario = decoded; 
+    res.locals.usuario = decoded;
     res.locals.esMedico = decoded.rol === 'medico';
   } catch (error) {
     console.error('Token inválido:', error.message);

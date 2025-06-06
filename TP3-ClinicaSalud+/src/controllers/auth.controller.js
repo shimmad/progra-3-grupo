@@ -37,7 +37,7 @@ password: Joi.string().min(6).required().messages({
   );
 
   res.cookie('token', token, { httpOnly: true });
-  return res.redirect('/turnos');
+  return res.redirect('/login');
   }
   /*El token no se pide manualmente. Se guarda al hacer login y se usa automáticamente en el formulario de nuevos turnos */ 
 
