@@ -1,24 +1,27 @@
-//necesito  usar el token
 const turno = require('../../models/sqlite/entities/turno.entity');
 const paciente = require('../../models/sqlite/entities/paciente.entity');
 const medico = require('../../models/sqlite/entities/medico.entity');
-// renderizo las vistas, si es medico tiene otro tipo de vista
+
+
+//VISTA DE LA PAGINA PRINCIPAL EN EJS
 const home = async (req, res) => {
     res.render('home',{
         title: 'Clinica Salud +',
         message: '¡Bienvenido a la Clinica Salud +!'
     })
 }
+
+//VISTA DEL LOGIN EN EJS
 const login = async (req, res) => {
     res.render('login', {
         title: 'Login',
         message: 'Iniciar sesion',
         usuario: res.locals.usuario,
         esMedico: res.locals.esMedico
-
-
     });
 };
+
+//VSITA DE LOS TURNOS EN EJS
 const vistaTurnos = async (req, res) => {
    try {
       const turnos = await turno.findAll({
@@ -29,11 +32,12 @@ const vistaTurnos = async (req, res) => {
       });
       const esMedico = req.usuario?.rol === 'medico'; // req.usuario viene del middelware
 
-        res.render('turnos', {
+      res.render('turnos', {
       title: 'Turnos',
       message: 'Listado de turnos',
       turnos,
       esMedico,
+      paciente,
       error: null
     });
   } catch (error) {
@@ -48,6 +52,8 @@ const vistaTurnos = async (req, res) => {
 }
 
 };
+
+//VISTA DE LOS PACIENTES EN EJS
 const vistaPacientes = async (req, res) => {
     try {
       const pacientes = await paciente.findAll();
@@ -70,10 +76,6 @@ const vistaPacientes = async (req, res) => {
       });
     }
   };
-
-
-// llam,o a la funcion lista de pacientesmodel (un arreglo de pacientes)
-
 
 module.exports = {
    home,

@@ -6,7 +6,7 @@
   <main>
     <section id="turnos">
     <div class="lista">
-      <h2>Lista de Turnos</h2>
+      <h2><%= message %></h2>
       <ul>
         <% if(turnos.length > 0){ %>
           <% turnos.forEach(turno => { %>
@@ -29,7 +29,7 @@
             </li>
           <% }) %>
         <% } else { %>
-        <p style="color: #e25757; text-align: center;" >No hay turnos disponibles</p>
+        <p class="mensaje-error" >No hay turnos disponibles</p>
         <% } %>    
       </ul>
     </div>
@@ -39,11 +39,14 @@
       <div class="formulario">
         <h2>Registrar nuevo turno</h2>
         <form id="formTurno" action="/turnos" method="POST">
-          <label>Paciente ID: <input type="number" name="pacienteId" required></label>
+          <label>Paciente ID: <input type="number" name="pacienteId"></label>
           <label>Fecha: <input type="text" name="fecha" placeholder="dd/mm/yyyy" required></label>
           <label>Hora: <input type="text" name="hora" placeholder="hh:mm" required></label>
           <button type="submit">Registrar</button>
         </form>
+        <% if(error){ %>
+          <p class="mensaje-error"><%= error %></p>
+        <% } %>
       </div>
     <% } %>
     </section>

@@ -31,7 +31,7 @@
                   <form action="/pacientes/<%= p.id %>?_method=DELETE" method="POST" style="display:inline;">
                     <button type="submit">Eliminar</button>
                   </form>
-                  <a href="/pacientes/<%= p.id %>/editar">Editar</a>
+                  <a href="#">Editar</a>
                 </td>
               <% } %>
             </tr>
@@ -39,7 +39,7 @@
         </tbody>
       </table>
     <% } else { %>
-      <p style="text-align:center; color: #e25757;">No hay pacientes para mostrar.</p>
+      <p class="mensaje-error">No hay pacientes para mostrar.</p>
     <% } %>
 
     <% if (esMedico) { %>
@@ -50,11 +50,12 @@
         <input type="text" name="dni" placeholder="DNI" required>
         <button type="submit">Agregar</button>
       </form>
+        <% if (error) { %>
+          <p class="mensaje-error"><%= error %></p>
+        <% } %>
     <% } %>
 
-    <% if (error) { %>
-      <p class="mensaje-error"><%= error %></p>
-    <% } %>
+    
   </main>
   <%- include('partials/footer') -%>
 </body>

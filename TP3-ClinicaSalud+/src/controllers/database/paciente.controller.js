@@ -26,15 +26,28 @@ exports.obtenerPacientesID = async (req,res)=>{
 exports.registrarPaciente = async (req, res) => {
     try {
         const {nombre, apellido, dni} = req.body;
-
+        
+        const pacienteExistente = await Paciente.findOne({where:{dni}});
+        if(pacienteExistente){
+        const pacientes = await Paciente.findAll();
+        const esMedico = req.usuario?.rol === 'medico';
+        return res.status(406).render('pacientes', {
+            title: 'Pacientes',
+            message: 'Listado de pacientes',
+            pacientes,
+            esMedico,
+            error: "Este paciente ya esta registrado"
+            });
+        }
+        
         const nuevoPaciente = await Paciente.create({
             nombre,
             apellido,
             dni
         })
-        res.redirect('/pacientes');
         console.log('Paciente guardado con ID:', nuevoPaciente.id);
-
+        return res.status(200).redirect('/pacientes'); 
+        
     } catch (error) {
         console.log('Error al registrar al paciente', error);
         res.status(500).send('Error al registrar paciente');
@@ -46,7 +59,7 @@ exports.borrarPaciente = async (req,res) => {
     const paciente = await Paciente.findByPk(req.params.id);
     try{
         await paciente.destroy();
-        res.status(204).redirect('/pacientes');
+        res.status(200).redirect('/pacientes');
     }
     catch {
         if (!paciente) {
