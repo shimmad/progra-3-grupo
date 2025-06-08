@@ -27,7 +27,7 @@ password: Joi.string().min(6).required().messages({
   if (error) {
     return res.status(400).render('login', { error: error.details[0].message });
   }
-  // esto es de prueba pero deberia ver como conecto con la base de datos
+  // esto es de prueba podria ver como conecto con la base de datos
   //si el email es admin@clinica.com y la clave admin, se acepta
   if (email === 'admin@clinica.com' && password === 'admin1234') {
       const token = jwt.sign(
