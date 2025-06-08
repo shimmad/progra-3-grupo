@@ -23,19 +23,19 @@ vista local:
 mail: admin@clinica.com
 pswrd: admin1234
 
-### **CRITERIOS DE EVALUACION**
+## **CRITERIOS DE EVALUACION**
 
-#### Separacion entre vistas de turnos online y locales
+### Separacion entre vistas de turnos online y locales
 
--**version local** utiliza plantillas EJS renderizadas desde el servidor,
+**version local**: utiliza plantillas EJS renderizadas desde el servidor,
  con vistas diferentes en caso de que sea un usuario o un medico logeado.
  Accede a la ***base de datos*** sqlite para manipular los datos.
 
--**version online** tiene endpoints REST para registrar, consultar y cancelar turnos
+**version online**: tiene endpoints REST para registrar, consultar y cancelar turnos
 Accede a datos en memoria, desde mock, turnos.models y pacientes.models
 
 
-#### ruteo claro y estructurado
+### ruteo claro y estructurado
 
 las rutas estan divididas
 **API**: Online
@@ -47,7 +47,7 @@ Los controladores tambien estan divididos en:
 
 Con el montaje de rutas en el server.js, rutas (){}
 
-#### Funcionalidad del sistema de turnos en EJS
+### Funcionalidad del sistema de turnos en EJS
 
 Se diferencia bien la interfaz del medico de la del resto de usuarios
 Si el medico se logea, tiene acceso a las acciones del sistema: agregar y borrar un turno o paciente. Tambien incluyen validaciones como: **Paciente ya existente**, **Turno ocupado**, **Campos obligatorios**, **Paciente no existente**.
@@ -63,18 +63,18 @@ y agrega esMedico=true al res.locals para que las vistas lo vean.
 los turnos incluyen datos de un medico predeterminado que ya fue creado y guardado en la ***base de datos***, tambien incluyen los datos del paciente que se gestionan con Sequelize.
 
 
-#### Funcionalidad del sistema de turnos Online
+### Funcionalidad del sistema de turnos Online
 
 
 
-#### uso de plantillas
+### uso de plantillas
 
 las vistas estan en views y se estructuran con ejs. Las 4 principales son: home, login, turnos, pacientes.
 Hay una carpeta partials donde se reutilizan componentes y mediante un include los agrego a las plantillas principales, 
 Variables compo esMedico o usuario se envian desde el backend segun el rol del usuario logeado, que permite acceder a las acciones del sistema en la plantilla turnos y pacientes.
 Se usa la carpeta public, donde se guardan archivos estaticos como .css o img. y se conectan a las plantillas desde el server.js en middleware.
 
-#### endpoints
+### endpoints
 
 **version local (vistas EJS)**
 
@@ -91,7 +91,7 @@ GET /api/v1/turnos/:idPaciente -> Obtener los turnos de un paciente con id
 POST /api/v1/turnos -> Crear nuevo turno medico (requiere token)
 DELETE /api/v1/turnos/:idTurno -> Cancelar turno (requiere token)
 
-#### dependencias usadas, de package.json
+### dependencias usadas, de package.json
 
 **"express": "^5.1.0"** :framework principal para crear servidor y manejar rutas
 
