@@ -78,18 +78,18 @@ Se usa la carpeta public, donde se guardan archivos estaticos como .css o img. y
 
 **version local (vistas EJS)**
 
-GET	/ -> Home con mensaje de bienvenida e informacion de la clinica
-GET	/login -> Formulario de inicio de sesion
-POST /login -> Autenticacion con JWT
-POST /logout -> Cerrar sesion
-GET	/turnos -> Lista de turnos (con vistas)
-GET	/pacientes -> Lista de pacientes (con vistas)
+- GET	/ -> Home con mensaje de bienvenida e informacion de la clinica
+- GET	/login -> Formulario de inicio de sesion
+- POST /login -> Autenticacion con JWT
+- POST /logout -> Cerrar sesion
+- GET	/turnos -> Lista de turnos (con vistas)
+- GET	/pacientes -> Lista de pacientes (con vistas)
 
 **Versión online (API REST)**
 
-GET /api/v1/turnos/:idPaciente -> Obtener los turnos de un paciente con id
-POST /api/v1/turnos -> Crear nuevo turno medico (requiere token)
-DELETE /api/v1/turnos/:idTurno -> Cancelar turno (requiere token)
+- GET /api/v1/turnos/:idPaciente -> Obtener los turnos de un paciente con id
+- POST /api/v1/turnos -> Crear nuevo turno medico (requiere token)
+- DELETE /api/v1/turnos/:idTurno -> Cancelar turno (requiere token)
 
 ### dependencias usadas, de package.json
 
