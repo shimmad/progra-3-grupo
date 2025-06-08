@@ -14,6 +14,7 @@ class PacientesController {
         res.status(200).json(info);
     }
     delete(req, res) {
+        //Deberia agregar un try catch para atrapar los errores y los async await
         const id = req.params.id;
         pacientesModel.delete(id);
         res.status(200).json({message:"elemento eliminado"})

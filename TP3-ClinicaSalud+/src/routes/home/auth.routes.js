@@ -1,7 +1,7 @@
 const express = require('express');
 const rutaLogin = express.Router();
-const { procesarLogin } = require('../controllers/auth.controller.js');
-const { login } = require('../controllers/home/home.controller.js');
+const { procesarLogin } = require('../../controllers/auth.controller.js');
+const { login } = require('../../controllers/home/home.controller.js');
 
 
 rutaLogin.get('/login', login);

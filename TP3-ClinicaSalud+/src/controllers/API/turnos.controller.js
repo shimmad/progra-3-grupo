@@ -29,7 +29,7 @@ class TurnosController {
   create(req,res){
     const{idPaciente, fecha, hora} = req.body;
     if (!idPaciente || !fecha ||!hora){
-      return res.status(400).json({mensaje: 'Faltan datps requeridos'});
+      return res.status(400).json({mensaje: 'Faltan datos requeridos'});
     }
 
     try {
