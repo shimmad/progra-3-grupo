@@ -1,25 +1,25 @@
 # TP3 Práctico 3 - ( BackEnd Nodejs ) 
-## Clínica Salud+ para desarrollar una aplicación web que permita la gestión de turnos médicos -----
+##### Clínica Salud+ para desarrollar una aplicación web que permita la gestión de turnos médicos 
 
 ## GRUPO 29, integrantes:
 
-+Abarzua, Valentina
-+Antunez, Agustin
-+Folik, Hernan
-+Martinez Arana, Jimena
-+Zanconi, Gianluca
+- Abarzua, Valentina
+- Antunez, Agustin
+- Folik, Hernan
+- Martinez Arana, Jimena
+- Zanconi, Gianluca
 
 ### instalar proyecto:
 
-clonar repositorio: ***https://github.com/shimmad/progra-3-grupo.git***
+- clonar repositorio: ***https://github.com/shimmad/progra-3-grupo.git***
 
-en la carpeta TP3-ClinicaSalud+
-instalar dependencias ya configuradas con: ***npm install***
-iniciar sevidor: ***node ./src/index.js***
+ en la carpeta TP3-ClinicaSalud+
+- instalar dependencias ya configuradas con: ***npm install***
+- iniciar sevidor: ***node ./src/index.js***
 
 
-unico medico registrado:
-vista local:
+#### unico medico registrado
+vista local
 mail: admin@clinica.com
 pswrd: admin1234
 
@@ -35,9 +35,9 @@ pswrd: admin1234
 Accede a datos en memoria, desde mock, turnos.models y pacientes.models
 
 
-### ruteo claro y estructurado
+### Ruteo claro y estructurado
 
-las rutas estan divididas
+las rutas estan divididas en carpetas:
 **API**: Online
 **HOME**: Locales
 
@@ -49,7 +49,7 @@ Con el montaje de rutas en el server.js, rutas (){}
 
 ### Funcionalidad del sistema de turnos en EJS
 
-Se diferencia bien la interfaz del medico de la del resto de usuarios
+Se diferencia bien la interfaz del medico de la del resto de usuarios.
 Si el medico se logea, tiene acceso a las acciones del sistema: agregar y borrar un turno o paciente. Tambien incluyen validaciones como: **Paciente ya existente**, **Turno ocupado**, **Campos obligatorios**, **Paciente no existente**.
 
 Los datos que se ingresan en el formulario login tienen validacion con **joi**.
@@ -57,7 +57,7 @@ Se pide un email y password con requisitos especificos.
 
 Por ahora hay solo un medico registrado con el mail mencionado. Entonces en **auth.controller**, se compara lo ingresado en el formulario de la plantilla login, y si coincide se genera el token con **jwt**. Si tiene token,entonces se la asiga rol:'Medico', generando una renderizacion distinta a las plantilas login, paciente, turnos.
 
-La carpeta middleware contien un archivo **verifytoken** q decodifica el token
+La carpeta middleware contiene un archivo **verifytoken** q decodifica el token
 y agrega esMedico=true al res.locals para que las vistas lo vean.
 
 los turnos incluyen datos de un medico predeterminado que ya fue creado y guardado en la ***base de datos***, tambien incluyen los datos del paciente que se gestionan con Sequelize.
@@ -67,14 +67,14 @@ los turnos incluyen datos de un medico predeterminado que ya fue creado y guarda
 
 
 
-### uso de plantillas
+### Uso de plantillas
 
-las vistas estan en views y se estructuran con ejs. Las 4 principales son: home, login, turnos, pacientes.
-Hay una carpeta partials donde se reutilizan componentes y mediante un include los agrego a las plantillas principales, 
+Las vistas estan en views y se estructuran con **ejs**. Las 4 principales son: home, login, turnos, pacientes.
+Hay una carpeta partials donde se reutilizan componentes y mediante un include se agregan a las plantillas principales. 
 Variables compo esMedico o usuario se envian desde el backend segun el rol del usuario logeado, que permite acceder a las acciones del sistema en la plantilla turnos y pacientes.
 Se usa la carpeta public, donde se guardan archivos estaticos como .css o img. y se conectan a las plantillas desde el server.js en middleware.
 
-### endpoints
+### Endpoints
 
 **version local (vistas EJS)**
 
@@ -85,13 +85,13 @@ Se usa la carpeta public, donde se guardan archivos estaticos como .css o img. y
 - GET	/turnos -> Lista de turnos (con vistas)
 - GET	/pacientes -> Lista de pacientes (con vistas)
 
-**Versión online (API REST)**
+**Version online (API REST)**
 
 - GET /api/v1/turnos/:idPaciente -> Obtener los turnos de un paciente con id
 - POST /api/v1/turnos -> Crear nuevo turno medico (requiere token)
 - DELETE /api/v1/turnos/:idTurno -> Cancelar turno (requiere token)
 
-### dependencias usadas, de package.json
+### Dependencias principales, de package.json
 
 **"express": "^5.1.0"** :framework principal para crear servidor y manejar rutas
 
