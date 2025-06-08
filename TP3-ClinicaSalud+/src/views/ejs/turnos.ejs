@@ -40,8 +40,8 @@
         <h2>Registrar nuevo turno</h2>
         <form id="formTurno" action="/turnos" method="POST">
           <label>Paciente ID: <input type="number" name="pacienteId"></label>
-          <label>Fecha: <input type="text" name="fecha" placeholder="dd/mm/yyyy" required></label>
-          <label>Hora: <input type="text" name="hora" placeholder="hh:mm" required></label>
+          <label>Fecha: <input type="text" name="fecha" placeholder="dd/mm/yyyy" ></label>
+          <label>Hora: <input type="text" name="hora" placeholder="hh:mm"></label>
           <button type="submit">Registrar</button>
         </form>
         <% if(error){ %>

@@ -1,10 +1,11 @@
 const Server = require('./server.js');
 const {connectDB, sequelize} = require('./models/sqlite/config/db.js');
-const {crearDatos, mostrarTurno} = require("./seed.js");
+const {Paciente,Medico,Turno} = require("./models/sqlite/associate.js");
 
 async function main() {
   try {
     await connectDB();
+
 
     const server = new Server("ejs");
     server.listen();

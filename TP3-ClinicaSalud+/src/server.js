@@ -1,13 +1,13 @@
 const  express = require('express');
 const  dotenv = require('dotenv');
-const rutaPacientes = require('./routes/pacientes.route.js');
-const rutaPacienteDB = require('./routes/pacienteDB.routes.js');
-const rutaTurnosDB = require('./routes/turnoDB.routes.js');
-const rutaHome = require('./routes/home.routes.js');
-const rutaLogin = require('./routes/auth.routes.js');
+const rutaPacientes = require('./routes/API/pacientes.route.js');
+const rutaTurnos = require('./routes/API/turnos.route.js');
+const rutaPacienteDB = require('./routes/home/pacienteDB.routes.js');
+const rutaTurnosDB = require('./routes/home/turnoDB.routes.js');
+const rutaHome = require('./routes/home/home.routes.js');
+const rutaLogin = require('./routes/home/auth.routes.js');
 const morgan = require('morgan');
 dotenv.config()
-const rutaTurnos = require('./routes/turnos.route.js');
 const path = require('path');
 const cookiesParser = require('cookie-parser'); //para verificar cookies, autenticacion de medico
 const methodOverride = require('method-override');
@@ -18,16 +18,9 @@ class Server {
     this.app = express()
     this.port = process.env.PORT || 3001
     this.middleware()
-    //this.cors()
     this.engine(template)
     this.rutas()
- 
-    
   }
-
-/*   cors () {
-    this.app.use(cors())
-  } */
 
   engine (template) {
      try{
@@ -46,23 +39,21 @@ class Server {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(methodOverride('_method'));
-    this.app.use(cookiesParser()); //agrego cookie parser
+    this.app.use(cookiesParser());
     this.app.use(morgan('dev'));
     this.app.use('/img', express.static(path.join(__dirname, 'views', 'ejs', 'img')));
   }
 
   rutas () {
+    //Rutas de la version online
     this.app.use('/api/v1/pacientes', rutaPacientes)
-    //this.app.use('/api/v1/turnos', rutaTurnos)
+    this.app.use('/api/v1/turnos', rutaTurnos)
+
+    //Rutas de las vistas renderizadas
     this.app.use('/',rutaHome)
     this.app.use('/',rutaLogin)
-   
-  
-    // aca van las otras rutas
     this.app.use('/pacientes', rutaPacienteDB);
     this.app.use('/turnos', rutaTurnosDB);
-   
-   
   }
 
   listen () {

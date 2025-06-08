@@ -1,5 +1,5 @@
 const {Router} = require('express');
-const pacientesController = require('../controllers/API/pacientes.controller.js')
+const pacientesController = require('../../controllers/API/pacientes.controller')
 const rutaPacientes = Router();
 
 rutaPacientes.get('/', pacientesController.list);
