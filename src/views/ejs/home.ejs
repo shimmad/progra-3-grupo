@@ -1,0 +1,43 @@
+<%- include('partials/head') -%>
+<link rel="stylesheet" href="/css/home.css">
+<body>
+    <%- include('partials/header') -%>
+    <div class="container">
+    <main>
+        <h2 class="titulo-principal"> <%= message %></h2>
+        <h4>Horario de atención: Lunes a Viernes de 8:00 a 18:00, Sábados de 8:00 a 14:00</h4>
+       
+   
+          
+        <p class="info">Nuestra clínica de salud ofrece una amplia gama de servicios médicos, desde consultas generales hasta especialidades médicas avanzadas. Contamos con un equipo de profesionales altamente capacitados para brindar un servicio de excelencia.</p>
+                
+                
+        <div class="info_clinica">
+            <div class="info_box">
+                <h2>Servicios</h2>
+                <ul class="servicios-medicos">
+                    <li>Medicina general</li>
+                    <li>Cardiología</li>
+                    <li>Neurología</li>
+                    <li>Pediatria</li>
+                    <li>Urgencias</li>
+                </ul>
+            </div>  
+            <div class="info-box">
+                <h2>Contacto</h2>
+                <p>Teléfono: (123) 456-7890</p>
+                <p>Correo electrónico: ClinicaSalud@bvconline.com</p>
+                <p>Sarmiento 1550, Bahia Blanca, Buenos Aires</p>
+            </div>
+        </div>
+        
+    </main>
+    </div>
+    
+ 
+
+    <%# Esto es un comentario (no se renderiza en el HTML) %>
+    
+  <%- include('partials/footer') -%>
+</body>
+</html>

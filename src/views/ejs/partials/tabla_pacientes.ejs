@@ -1,0 +1,30 @@
+<table class="tablaPacientes">
+    <thread>    
+        <tr> <!-- encabezado de la tabla -->
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Acciones</th>
+        </tr>
+    </thread>
+    <tbody>
+        <% pacientes.forEach(paciente => { %>
+            <tr>
+                <td><%= paciente.id %></td>
+                <td><%= paciente.nombre %></td>
+                <td><%= paciente.apellido %></td>
+                <td><%= paciente.email %></td>
+                <!-- condicional, deben aparecer si sos medico algo asi?-->
+                 <!-- <% if (esMedico) { %>
+        <form action="/turnos/<%= turno.id %>?_method=DELETE" method="POST">
+          <button>Eliminar</button>
+        </form> -->
+                <td>
+                   <button>Eliminar </button>
+                   <button>Editar </button>
+                </td>
+            </tr>
+        <% }); %>
+    </tbody>
+</table>

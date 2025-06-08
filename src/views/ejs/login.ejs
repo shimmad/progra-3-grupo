@@ -1,0 +1,38 @@
+<!-- formulario de login d personal de la clinica con vista ejs-->
+
+<%- include('partials/head') -%>
+<link rel="stylesheet" href="/css/login.css">
+<body>
+  <%- include('partials/header') -%>
+
+  <div class="contenedor-login">
+    <% if (esMedico && usuario) { %>
+      <div class="titulo-login">Bienvenido, <%= usuario.email %></div>
+      <form action="/logout" method="POST">
+        <button id="cerrarSesion" type="submit">Cerrar sesión</button>
+      </form>
+    <% } else { %>
+      <div class="titulo-login">Login de Personal</div>
+
+      <% if (typeof error !== 'undefined') { %>
+        <p class="mensaje-error"><%= error %></p>
+      <% } %>
+
+      <div class="formulario">
+        <form action="/login" method="POST">
+          <h3>Iniciar sesión</h3>
+          <label>Email:</label>
+          <input type="email" name="email" required />
+
+          <label>Contraseña:</label>
+          <input type="password" name="password" required minlength="8" />
+
+          <button type="submit">Ingresar</button>
+        </form>
+      </div>
+    <% } %>
+  </div>
+
+  <%- include('partials/footer') -%>
+</body>
+</html>

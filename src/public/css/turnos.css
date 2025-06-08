@@ -1,0 +1,137 @@
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-image: url('../img/clinica_11.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    color: #0e0813;
+  }
+
+  main {
+    background-color: rgba(255, 255, 255, 0.9);
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 95%;
+    max-width: 900px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+
+  h2 {
+    text-align: center;
+    color: #102358;
+    margin-bottom: 25px;
+    font-weight: bold;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+   #turnos li {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .acciones {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+   #turnos button, #turnos a {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  button[type="submit"] {
+    background-color: #ff7979;
+    color: white;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #e25757;
+    cursor: pointer;
+  }
+
+  a[href*="editar"] {
+    background-color: #71cbd1;
+    color: #0e0813;
+  }
+
+  a[href*="editar"]:hover {
+    background-color: #4dbdc4;
+  }
+
+  .formulario {
+    margin-top: 40px;
+  }
+
+  .formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .formulario label {
+    font-weight: bold;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .formulario input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 70%;
+  }
+
+  .formulario button {
+    background-color: #4CAF50;
+    color: white;
+    width: 200px;
+  }
+
+  .formulario button:hover {
+    background-color: #45a049;
+    cursor: pointer;
+  }
+
+  .mensaje-error {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  @media screen and (max-width: 600px) {
+    .formulario label {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .formulario input {
+      width: 100%;
+    }
+
+    li {
+      font-size: 14px;
+    }
+  }
