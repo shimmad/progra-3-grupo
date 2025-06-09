@@ -1,0 +1,119 @@
+body{
+         margin:0;
+        font-family: 'Roboto', sans-serif;
+        background-image: url('../img/clinica_10.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        color:#0e0813;
+
+  }
+  main{
+    background-color: rgba(255, 255, 255, 0.9);
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 95%;
+    max-width: 1000px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+  h2, h3 {
+       text-align: center;
+    color: #102358;
+    margin-bottom: 25px;
+    font-weight: bold;
+  }
+  table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+  }
+  th{
+    /*width: 50%;*/
+    /*border: 1px solid #0e0813;*/
+    background-color: #e2f3f5;
+    font-weight: bold;
+  }
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  td {
+    text-align: center;
+  }
+
+  a, button{
+      padding: 8px 12px;
+    margin: 2px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+   button[type="submit"] {
+    background-color: #ff7979;
+    color: white;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #e25757;
+    cursor: pointer;
+  }
+
+  a[href*="editar"] {
+    background-color: #71cbd1;
+    color: #0e0813;
+  }
+
+  a[href*="editar"]:hover {
+    background-color: #4dbdc4;
+  }
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  form input[type="text"] {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 200px;
+  }
+
+  form button {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  form button:hover {
+    background-color: #45a049;
+    cursor: pointer;
+  }
+
+  .mensaje-error {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  @media screen and (max-width: 600px) {
+    table, form {
+      font-size: 14px;
+    }
+
+    form input[type="text"] {
+      width: 100%;
+    }
+
+    form {
+      flex-direction: column;
+      align-items: center;
+    }
+  }

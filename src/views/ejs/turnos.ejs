@@ -1,0 +1,56 @@
+<%- include('partials/head') -%>
+<link rel="stylesheet" href="/css/turnos.css">
+<body>
+  <%- include('partials/header') -%>
+
+  <main>
+    <section id="turnos">
+    <div class="lista">
+      <h2><%= message %></h2>
+      <ul>
+        <% if(turnos.length > 0){ %>
+          <% turnos.forEach(turno => { %>
+            <li>
+              <span>
+                <strong>Fecha:</strong> <%= turno.fecha %> — 
+                <strong>Hora:</strong> <%= turno.hora %> — 
+                <strong>Paciente:</strong> <%= turno.Paciente?.nombre %> <%= turno.Paciente?.apellido %> — 
+                <strong>Medico:</strong> <%= turno.Medico?.nombre %>
+
+                </span>
+              <% if (esMedico) { %>
+                <div class="acciones">
+                  <form action="/turnos/<%= turno.id %>?_method=DELETE"" method="POST">
+                    <button type="submit">Eliminar</button>
+                  </form>
+                  <a href="">Editar</a>
+                </div>
+              <% } %>
+            </li>
+          <% }) %>
+        <% } else { %>
+        <p class="mensaje-error" >No hay turnos disponibles</p>
+        <% } %>    
+      </ul>
+    </div>
+
+    
+    <% if (esMedico) { %>
+      <div class="formulario">
+        <h2>Registrar nuevo turno</h2>
+        <form id="formTurno" action="/turnos" method="POST">
+          <label>Paciente ID: <input type="number" name="pacienteId"></label>
+          <label>Fecha: <input type="text" name="fecha" placeholder="dd/mm/yyyy" ></label>
+          <label>Hora: <input type="text" name="hora" placeholder="hh:mm"></label>
+          <button type="submit">Registrar</button>
+        </form>
+        <% if(error){ %>
+          <p class="mensaje-error"><%= error %></p>
+        <% } %>
+      </div>
+    <% } %>
+    </section>
+  </main>
+
+  <%- include('partials/footer') -%>
+</body>
