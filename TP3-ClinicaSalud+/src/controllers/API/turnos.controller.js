@@ -42,14 +42,20 @@ class TurnosController {
     }
   }
 
-   async delete(req, res) {
-    const idTurno = req.params.idTurno;
-    const eliminado = await turnosModel.deleteById(idTurno);
+  async delete(req, res) {
+    try{
+      const idTurno = req.params.idTurno;
+      const eliminado = turnosModel.deleteById(idTurno);
 
-    if (eliminado) {
-      res.status(200).json({ mensaje: 'Turno eliminado correctamente' });
+      if (eliminado) {
+        res.status(200).json({ mensaje: 'Turno eliminado correctamente' });
     } else {
-      res.status(404).json({ mensaje: 'Turno no encontrado' });
+        res.status(404).json({ mensaje: 'Turno no encontrado' });
+    }
+
+    }catch (error) {
+      console.error("Error al eliminar el turno", error);
+      res.status(500).json ({mensaje: "Error interno del servidor"});
     }
   }
   //crear nuevo turno
