@@ -71,6 +71,8 @@ los turnos incluyen datos de un medico predeterminado que ya fue creado y guarda
 
 ### Funcionalidad del sistema de turnos Online
 
+A traves de una**API REST**, se pueden realizar las siguientes operaciones principales: un listado completo de todos los turnos registrados; obtener los datos de un turno por id de turno; obtener los turnos por id de paciente; crear un nuevo turno con los datos necesarion en un body, protegido con un middelware de autenticacion con **JWT** (para q solo el medico pueda haerlo); eliminar un turno.
+Todas las operaciones implementan **promesas** y **async/await**.
 
 
 ### Uso de plantillas
@@ -94,6 +96,7 @@ Se usa la carpeta public, donde se guardan archivos estaticos como .css o img. y
 **Version online (API REST)**
 
 - GET /api/v1/turnos/:idPaciente -> Obtener los turnos de un paciente con id
+- GET /api/v1/turnos/:idTurno ->Obtener un turno segun su id
 - POST /api/v1/turnos -> Crear nuevo turno medico (requiere token)
 - DELETE /api/v1/turnos/:idTurno -> Cancelar turno (requiere token)
 
