@@ -15,7 +15,7 @@ class TurnosController {
 
   async ObtenerTurnosId(req,res){
     try{
-      const turnos = turnosModel.listByTurnoId();
+      const turnos = await turnosModel.listByTurnoId();
       res.status(200).json(turnos);
     }
     catch (error){
@@ -60,14 +60,14 @@ class TurnosController {
   }
   //crear nuevo turno
   /* para proteger la funcion, uso el middleware verify_token q valida si el usuario tiene un token jwt para q solo el personal autenticado pueda generar turnos */ 
-  create(req,res){
+  async create(req,res){
     const{pacienteId, fecha, hora} = req.body;
     if (!pacienteId || !fecha ||!hora){
       return res.status(400).json({mensaje: 'Faltan datos requeridos'});
     }
 
     try {
-      const nuevoTurno= turnosModel.create({pacienteId, fecha,hora});
+      const nuevoTurno= await turnosModel.create({pacienteId, fecha,hora});
       res.status(201).json({mensaje:'Turno registrado', turno:nuevoTurno});
       turnosModel.turnos.push(nuevoTurno)
       console.log(nuevoTurno)

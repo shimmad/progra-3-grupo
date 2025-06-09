@@ -11,20 +11,20 @@ class TurnosModel {
     this.turnos.push(new Turno (5, 5, "27/05/2025", "14:00"))
   }
 
-  list() {
-    return this.turnos//promise
+  async list() {
+    return this.turnos;
   }
 
-  listByTurnoId(id){
+  async listByTurnoId(id){
     return this.turnos.filter(t => t.id == parseInt (id));
   }//promise
 
-  listByPacienteId(idPaciente) {
+  async listByPacienteId(idPaciente) {
     return this.turnos.filter(t => t.pacienteId == parseInt (idPaciente));
 
   }
 
-  deleteById(idTurno){
+  async deleteById(idTurno){
     const index = this.turnos.findIndex(t => t.pacienteId == parseInt(idTurno));
     if (index !== -1){
       this.turnos.splice(index, 1);
@@ -34,7 +34,7 @@ class TurnosModel {
     }
   }
 
-    create({ pacienteId, fecha, hora }) {
+   async create({ pacienteId, fecha, hora }) {
     const id = this.turnos.length > 0
       ? this.turnos[this.turnos.length - 1].id + 1
       : 1;
