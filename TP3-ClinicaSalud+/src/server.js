@@ -7,7 +7,7 @@ const rutaTurnosDB = require('./routes/home/turnoDB.routes.js');
 const rutaHome = require('./routes/home/home.routes.js');
 const rutaLogin = require('./routes/home/auth.routes.js');
 const morgan = require('morgan');
-dotenv.config()
+require('dotenv').config();
 const path = require('path');
 const cookiesParser = require('cookie-parser'); //para verificar cookies, autenticacion de medico
 const methodOverride = require('method-override');
@@ -35,6 +35,7 @@ class Server {
 
   }
   middleware () {
+    this.host = process.env.HOST || 'localhost';
     this.app.use('/', express.static(path.join(__dirname, 'public')));
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
@@ -59,7 +60,7 @@ class Server {
   listen () {
     this.app.listen(this.port, () => {
       console.log(
-        `Server running on port ${this.port}, host: ${process.env.HOST}:${this.port}`
+        `Server running on port ${this.port}, host: ${this.host}:${this.port}`
       )
     })
   }

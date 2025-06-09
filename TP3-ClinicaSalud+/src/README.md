@@ -14,6 +14,12 @@
 - clonar repositorio: ***https://github.com/shimmad/progra-3-grupo.git***
 
  en la carpeta TP3-ClinicaSalud+
+- crear archivo .env.template con este contenido:
+
+    TEMPLATE=ejs
+    HOST=http://localhost
+    PORT=3000
+
 - instalar dependencias ya configuradas con: ***npm install***
 - iniciar sevidor: ***node ./src/index.js***
 
