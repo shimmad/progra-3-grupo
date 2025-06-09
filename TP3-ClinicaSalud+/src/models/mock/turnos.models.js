@@ -11,37 +11,52 @@ class TurnosModel {
     this.turnos.push(new Turno (5, 5, "27/05/2025", "14:00"))
   }
 
-  async list() {
-    return this.turnos;
+  list() {
+    return new Promise((resolve) => {
+      resolve(this.turnos)
+    }); 
   }
 
-  async listByTurnoId(id){
-    return this.turnos.filter(t => t.id == parseInt (id));
-  }//promise
+  listByTurnoId(id){
+    return new Promise((resolve)=>{
+      const turno = this.turnos.filter(t => t.id == parseInt (id));
+      resolve(turno);
+    }) 
+    
+  }
 
-  async listByPacienteId(idPaciente) {
-    return this.turnos.filter(t => t.pacienteId == parseInt (idPaciente));
+  listByPacienteId(idPaciente) {
+    return new Promise((resolve)=>{
+      const paciente = this.turnos.filter(t => t.pacienteId == parseInt (idPaciente));
+      resolve(paciente);
+    }) 
 
   }
 
-  async deleteById(idTurno){
-    const index = this.turnos.findIndex(t => t.pacienteId == parseInt(idTurno));
+  deleteById(idTurno){
+
+    return new Promise((resolve)=> {
+      const index = this.turnos.findIndex(t => t.pacienteId == parseInt(idTurno));
     if (index !== -1){
       this.turnos.splice(index, 1);
       return true;
     } else {
-      return false;
+      resolve(false);
     }
+    });
   }
 
-   async create({ pacienteId, fecha, hora }) {
-    const id = this.turnos.length > 0
+   create({ pacienteId, fecha, hora }) {
+    return new Promise((resolve) =>{
+      const id = this.turnos.length > 0
       ? this.turnos[this.turnos.length - 1].id + 1
       : 1;
 
     const nuevoTurno = new Turno(id, pacienteId, fecha, hora);
     this.turnos.push(nuevoTurno);
-    return nuevoTurno;
+    return resolve(nuevoTurno);
+    });
+    
   }
 
 }
