@@ -14,7 +14,7 @@
 - clonar repositorio: ***https://github.com/shimmad/progra-3-grupo.git***
 
  en la carpeta TP3-ClinicaSalud+
-- crear archivo .env.template con este contenido:
+- crear archivo .env con este contenido:
 
     TEMPLATE=ejs
     HOST=http://localhost

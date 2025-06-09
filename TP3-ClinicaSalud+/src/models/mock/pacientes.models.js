@@ -7,47 +7,57 @@ class PacientesModel {
     this.id = 2;
   }
   // crea un dato nuevo (alta de cliente)
-  create(paciente) {
-    //TODO: verificar que no sea nulo si es nulo tierar excepcion
-
-    //return persona;
+  async create(paciente) {
     return new Promise((resolve, reject) => {
+      if (!paciente) {
+        return reject(new Error("Paciente inválido"));
+      }
       paciente.id = this.id;
       this.id++;
       this.data.push(paciente);
-    
+
       resolve(paciente);
       
     });
   }
   // actualiza los datos del cliente con id = id
-  update(id, paciente) {
+  async update(id, paciente) {
     try {
       const pacienteEncontrado = this.data.find((p)=>p.id==id);
-      if(paciente===null){
-        throw new Error("No se encuntra el paciente")
+      if (!pacienteEncontrado) {
+        throw new Error("No se encontro el paciente");
       }
      pacienteEncontrado.dni = paciente.dni 
      pacienteEncontrado.email = paciente.email;
      pacienteEncontrado.nombre = paciente.nombre;
      pacienteEncontrado.apellido = paciente.apellido
+
+     return true;
     } catch (error) {
       console.log(error.message());
+      return false;
     }
   
   }
   // elimina el cliente con id = id
-  delete(id) {
+  async delete(id) {
     try {
-      const pacienteEncontrado = this.data.find((p)=>p.id==id);
-      const pos = this.data.indexOf(pacienteEncontrado)
-      this.data.splice(pos, 1); // elimina el elemento de la posición pos del arreglo
+      const index = this.data.findIndex((p) => p.id == id);
+      if (index == -1){
+        return false;
+      }
+
+         this.data.splice(index, 1); // elimina el elemento
+      return true;
     } catch (error) {
-      console.log("Error: el id no existe");
+      console.error("Error al eliminar paciente:", error.message);
+      return false;
     }
+  
   }
+  
   // devuelve la lista completa en un arreglo de strings
-  list() {
+  async list() {
     return new Promise(
         (resolve,reject)=>{
             resolve(this.data);

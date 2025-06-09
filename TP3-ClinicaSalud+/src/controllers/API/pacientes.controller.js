@@ -13,12 +13,23 @@ class PacientesController {
         const info = await pacientesModel.create(nuevoPaciente);
         res.status(200).json(info);
     }
-    delete(req, res) {
-        //Deberia agregar un try catch para atrapar los errores y los async await
-        const id = req.params.id;
-        pacientesModel.delete(id);
-        res.status(200).json({message:"elemento eliminado"})
+    
+    async delete(req, res) {
+        try {
+            const id = req.params.id;
+            const eliminado = await pacientesModel.delete(id);
+
+            if (eliminado) {
+                res.status(200).json({ message: "Elemento eliminado correctamente" });
+            } else {
+                res.status(404).json({ message: "Paciente no encontrado" });
+            }
+        } catch (error) {
+            console.error("Error al eliminar paciente:", error);
+            res.status(500).json({ message: "Error interno del servidor" });
+        }
     }
+
     update(req, res) {
         const id = req.params.id;
          const {dni,nombre,apellido,email} = req.body;
