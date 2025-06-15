@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import DetallePersona from "./DetallePersona";
-import { obtenerPersona } from "./TraerPersonas";
 
 function ListaPersonas() {
   const [personas, setPersonas] = useState([]);
@@ -38,8 +37,8 @@ function ListaPersonas() {
 
   return (
     <div>
-      <h2>Personas</h2>
-      <ul style={{ listStyleType: "none", padding: 0 }}>
+      <h1>Personas</h1>
+      <ul>
         {personas.map(persona => (
           <li key={persona.id}>
             <button onClick={() => handleClick(persona.id)}>
