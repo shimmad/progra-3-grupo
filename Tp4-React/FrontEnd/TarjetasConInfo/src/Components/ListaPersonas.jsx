@@ -1,43 +1,55 @@
-import { useEffect, useState } from 'react';
-import { obtenerPersona } from './TraerPersonas';
+import React, { useEffect, useState } from "react";
+import DetallePersona from "./DetallePersona";
+import { obtenerPersona } from "./TraerPersonas";
 
-const ListaPersonas = () => {
-    const [personas, setPersonas] = useState([]);
-    
-    useEffect(() => {
-        const traer = async () => {
-            const datos = await obtenerPersona();
-            setPersonas(datos);
-        };
-        traer();
-    }, []);
+function ListaPersonas() {
+  const [personas, setPersonas] = useState([]);
+  const [personaSeleccionada, setPersonaSeleccionada] = useState(null);
 
+  useEffect(() => {
+     fetch("http://localhost:3000/personas/")
+      
+    .then(response => {
+        if (!response.ok) throw new Error("Error al obtener los datos");
+        return response.json();
+      })
+      .then(data => setPersonas(data))
+      .catch(error => console.error("Error en el fetch:", error));
+  }, []);
+
+  const handleClick = (id) => {
+    fetch(`http://localhost:3000/personas/${id}`)
+      .then(response => {
+        if (!response.ok) throw new Error("Error al obtener la persona");
+        return response.json();
+      })
+      .then(data => setPersonaSeleccionada(data))
+      .catch(error => console.error(error));
+  };
+
+  if (personaSeleccionada) {
     return (
-    <div
-        style={{
-            maxWidth: '400px',
-            margin: '2rem auto',
-            padding: '2rem',
-            backgroundColor: '#fff',
-            color: '#222',
-            borderRadius: '12px',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
-            textAlign: 'center'
-        }}
-    >
-        <h2>Personas Registradas</h2>
-        {personas.length === 0 ? (
-            <p>Cargando personas...</p>
-        ) : (
-            <ul>
-                {personas.map((persona) => (
-                    <li key={persona.id}>
-                        {persona.nombre} {persona.apellido}
-                    </li>
-                ))}
-            </ul>
-        )}
+      <DetallePersona
+        persona={personaSeleccionada}
+        onVolver={() => setPersonaSeleccionada(null)}
+      />
+    );
+  }
+
+  return (
+    <div>
+      <h2>Personas</h2>
+      <ul style={{ listStyleType: "none", padding: 0 }}>
+        {personas.map(persona => (
+          <li key={persona.id}>
+            <button onClick={() => handleClick(persona.id)}>
+              {persona.nombre} {persona.apellido}
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
-)};
+  );
+}
 
 export default ListaPersonas;

@@ -2,13 +2,9 @@ import './App.css'
 import ListaPersonas from './Components/ListaPersonas';
 
 function App() {
-
   return (
-    <>
-      <ListaPersonas /> 
-    </>
-    
-  )
+    <ListaPersonas />
+  );
 }
 
-export default App
+export default App;

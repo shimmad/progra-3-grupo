@@ -1,8 +1,12 @@
 import express from 'express';
-import { getPersonas } from '../controllers/personaController.js';
+import { personas, getPersonaById } from '../controllers/personaController.js';
 
 const router = express.Router();
 
-router.get('/', getPersonas);
+// GET todas las personas
+router.get('/', personas);
+
+// GET persona por ID
+router.get('/:id', getPersonaById);
 
 export default router;

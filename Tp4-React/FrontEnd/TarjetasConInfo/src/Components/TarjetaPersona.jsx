@@ -1,15 +1,15 @@
 //componente visual que reccibe una persona xomo prop y muesttra sus datos en un diseño lindo
 //recibe una persona como prop con nombre, apellido, edad, mail
-import "./TarjetaPersona.css";
-const TarjetaPersona = ({persona}) => {
-    const { nombre, apellido, edad, email } = persona;
-    return (
-        <div className="tarjeta">
-            <h2>{nombre} {apellido}</h2>
-            <p>{edad}</p>
-            <p>{email}</p>
-        </div>
-    );
-};
+import React from "react";
+
+function TarjetaPersona({ persona }) {
+  return (
+    <div style={{ border: "1px solid #ccc", borderRadius: 8, padding: 16, margin: 8 }}>
+      <h3>{persona.nombre}</h3>
+      <p>Edad: {persona.edad}</p>
+      <p>Email: {persona.email}</p>
+    </div>
+  );
+}
 
 export default TarjetaPersona;
